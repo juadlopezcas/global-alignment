@@ -1,11 +1,13 @@
 import numpy as np
 import autograd.numpy as anp
 import matplotlib.pyplot as plt
-from pymanopt.manifolds import Stiefel
+from pymanopt.manifolds import SpecialOrthogonalGroup, Stiefel
 from pymanopt import Problem
 from pymanopt.optimizers import TrustRegions
 from pymanopt.autodiff.backends import autograd
 from scipy.spatial.distance import cdist
+
+from scipy.optimize import linear_sum_assignment
 
 # Keep the random draws fixed so results are repeatable.
 np.random.seed(42)
@@ -48,8 +50,8 @@ print(f"  Matrix:\n{R_true}")
 # ============================================================================
 
 # O(2) can be represented as Stiefel(2, 2): all 2x2 orthogonal matrices.
-manifold = Stiefel(2, 2)
-
+# manifold = Stiefel(2, 2)
+manifold = SpecialOrthogonalGroup(2)
 # Autograd-friendly helpers for the MMD^2 objective.
 def rbf_kernel_ag(X, Y, sigma=1.0):
     """RBF (Gaussian) kernel using autograd numpy"""
@@ -142,6 +144,45 @@ print(f"  Initial: {initial_mmd:+.6f}")
 print(f"  Final:   {final_mmd:+.6f}")
 print(f"  Improvement: {(initial_mmd-final_mmd):.6f}")
 print("="*70)
+
+# ============================================================================
+# HUNGARIAN ALGORITHM: POINT-TO-POINT MATCHING
+# ============================================================================
+print("\n" + "="*70)
+print("POINT-TO-POINT MATCHING (HUNGARIAN ALGORITHM)")
+print("="*70)
+
+# Calculate the distance matrix (Cost Matrix)
+cost_matrix = cdist(Xc_aligned, Yc, metric='euclidean')
+
+# Solve for the global optimal one-to-one matching using the Hungarian algorithm
+row_ind, col_ind = linear_sum_assignment(cost_matrix)
+
+# Extract matching errors
+matched_distances = cost_matrix[row_ind, col_ind]
+mean_matching_error = np.mean(matched_distances)
+
+print(f"Successfully found {len(row_ind)} one-to-one matching pairs.")
+print(f"Mean point-to-point matching distance (error): {mean_matching_error:.4f}")
+
+# 4. Visualize
+plt.scatter(Xc_aligned[:, 0], Xc_aligned[:, 1], alpha=0.6, label='R*Xc (aligned)', s=30, c='tab:blue')
+plt.scatter(Yc[:, 0], Yc[:, 1], alpha=0.6, label='Yc (target)', s=30, c='tab:orange')
+
+# Iterate through all matching pairs and connect them with thin lines
+# Since there are many points, alpha (transparency) is set to 0.2 to avoid visual clutter
+for i in range(len(row_ind)):
+    p_x = Xc_aligned[row_ind[i]]
+    p_y = Yc[col_ind[i]]
+    plt.plot([p_x[0], p_y[0]], [p_x[1], p_y[1]], 'k-', alpha=0.2, linewidth=0.8)
+
+plt.title(f'Hungarian Algorithm: Explicit Point Matches\nMean Matching Distance = {mean_matching_error:.4f}', fontsize=14, fontweight='bold')
+plt.xlabel('x₁', fontsize=12)
+plt.ylabel('x₂', fontsize=12)
+plt.legend(fontsize=11)
+plt.grid(True, alpha=0.3)
+plt.axis('equal')
+plt.tight_layout()
 
 # ============================================================================
 # VISUALIZATION
@@ -251,3 +292,5 @@ ax6.axvline(x=0, color='k', linewidth=0.5)
 
 plt.tight_layout()
 plt.show()
+
+print(f"Determinant: {np.linalg.det(R_opt)}")
