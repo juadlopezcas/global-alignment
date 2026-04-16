@@ -34,7 +34,7 @@ X = z @ A.T + np.array([2.0, -1.0, 3.0])   # Deliberately shifted
 theta_x, theta_y, theta_z = 45, 30, -60
 R_true = Rotation.from_euler('xyz', [theta_x, theta_y, theta_z], degrees=True).as_matrix()
 
-Y = z @ A.T @ R_true.T + np.array([-3.0, 4.0, 5.0]) + 20 * np.random.randn(n, 3)
+Y = z @ A.T @ R_true.T + np.array([-3.0, 4.0, 5.0]) + 5 * np.random.randn(n, 3)
 
 # Remove translation so we focus only on rotational alignment.
 Xc = X - X.mean(0)

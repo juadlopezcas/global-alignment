@@ -3,8 +3,8 @@ import numpy as np
 import os
 
 file_path = 'emd_9515.map' 
-recommended_threshold = 0.035
-num_points_wanted = 1000
+recommended_threshold = 0.035 # experiment-Contour_list-level
+num_points_wanted = 1000 # downsample
 
 # ==========================================
 
