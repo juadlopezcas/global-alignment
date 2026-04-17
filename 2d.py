@@ -2,6 +2,7 @@ import numpy as np
 import autograd.numpy as anp
 import matplotlib.pyplot as plt
 from pymanopt.manifolds import SpecialOrthogonalGroup
+from pymanopt.manifolds import Stiefel
 from pymanopt import Problem
 from pymanopt.optimizers import TrustRegions
 from pymanopt.autodiff.backends import autograd
@@ -118,6 +119,28 @@ def cost(R):
     X_rotated = anp.dot(R, Xc.T).T
     return mmd_squared_ag(X_rotated, Yc, sigma=1.0)
 
+def get_riemannian_pca_basis_2d(data_centered):
+    """
+    Use Pymanopt to obtain ordered principal axes directly on the SO(2) manifold (Riemannian PCA).
+    """
+    C = np.dot(data_centered.T, data_centered) # Covariance/Scatter matrix
+    
+    # Optimize directly on the 2D rotation group. 
+    pca_manifold = SpecialOrthogonalGroup(2)
+    
+    W = anp.diag(anp.array([2.0, 1.0]))
+    
+    @autograd(pca_manifold)
+    def pca_cost(U):
+        # Minimize the negative trace, equivalent to maximizing the weighted variance
+        return -anp.trace(W @ U.T @ C @ U)
+        
+    pca_problem = Problem(manifold=pca_manifold, cost=pca_cost)
+    pca_optimizer = TrustRegions(verbosity=0)
+    U_opt = pca_optimizer.run(pca_problem).point
+    
+    return U_opt
+
 # Bundle manifold + objective into a pymanopt problem.
 problem = Problem(manifold=manifold, cost=cost)
 
@@ -125,17 +148,13 @@ problem = Problem(manifold=manifold, cost=cost)
 print("\n" + "="*70)
 print("STEP 1: PCA INITIALIZATION")
 print("="*70)
-# Use SVD to get principal axes (equivalent to PCA)
-u_X, s_X, vh_X = np.linalg.svd(Xc)
-u_Y, s_Y, vh_Y = np.linalg.svd(Yc)
-v_X = vh_X.T
-v_Y = vh_Y.T
+# Get principal axes basis for X and Y via manifold optimization respectively
+v_X = get_riemannian_pca_basis_2d(Xc)
+v_Y = get_riemannian_pca_basis_2d(Yc)
 
-# Force them into valid rotation matrices (det = 1)
-if np.linalg.det(v_X) < 0: v_X[:, 1] *= -1
-if np.linalg.det(v_Y) < 0: v_Y[:, 1] *= -1
-
+# Calculate the base rotation matrix
 R_base = v_Y @ v_X.T
+
 pca_candidates = []
 
 # Generate 4 principal-axis aligned candidate solutions (0, 90, 180, 270 degrees)

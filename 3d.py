@@ -3,6 +3,7 @@ import autograd.numpy as anp
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from pymanopt.manifolds import SpecialOrthogonalGroup
+from pymanopt.manifolds import Stiefel
 from pymanopt import Problem
 from pymanopt.optimizers import TrustRegions
 from pymanopt.autodiff.backends import autograd
@@ -111,21 +112,44 @@ def cost(R):
     X_rotated = anp.dot(R, Xc.T).T
     return mmd_squared_ag(X_rotated, Yc, sigma=0.2)
 
+def get_riemannian_pca_basis(data_centered):
+    """
+    Use Pymanopt to obtain ordered principal axes directly on the SO(3) manifold (Riemannian PCA).
+    """
+    C = np.dot(data_centered.T, data_centered) # Covariance/Scatter matrix
+    
+    # Optimize directly on the 3D rotation group. 
+    pca_manifold = SpecialOrthogonalGroup(3)
+    
+    # Build a weight matrix (Brockett Cost) to force the first column to capture 
+    # the maximum variance, the second column the next highest, etc.
+    W = anp.diag(anp.array([3.0, 2.0, 1.0]))
+
+    @autograd(pca_manifold)
+    def pca_cost(U):
+        # Objective function: Maximize weighted variance (add negative sign to minimize)
+        return -anp.trace(W @ U.T @ C @ U)
+        
+    pca_problem = Problem(manifold=pca_manifold, cost=pca_cost)
+    # Use TrustRegions for extremely fast convergence
+    pca_optimizer = TrustRegions(verbosity=0)
+    U_opt = pca_optimizer.run(pca_problem).point
+    
+    return U_opt
+
+# Bundle manifold + objective into a pymanopt problem.
 problem = Problem(manifold=manifold, cost=cost)
 
 # --- STEP 1: PCA INITIALIZATION ---
 print("\n" + "="*70)
 print("STEP 1: 3D PCA INITIALIZATION")
 print("="*70)
-u_X, s_X, vh_X = np.linalg.svd(Xc)
-u_Y, s_Y, vh_Y = np.linalg.svd(Yc)
-v_X = vh_X.T
-v_Y = vh_Y.T
 
-# Force them into valid rotation matrices (det = 1)
-if np.linalg.det(v_X) < 0: v_X[:, 2] *= -1
-if np.linalg.det(v_Y) < 0: v_Y[:, 2] *= -1
+# Get principal axes basis for X and Y via manifold optimization respectively
+v_X = get_riemannian_pca_basis(Xc)
+v_Y = get_riemannian_pca_basis(Yc)
 
+# Calculate the base rotation matrix that aligns X's principal axes to Y's principal axes
 R_base = v_Y @ v_X.T
 
 # In 3D, SVD-matched principal axes have 4 valid sign combinations (ensuring det=1)
