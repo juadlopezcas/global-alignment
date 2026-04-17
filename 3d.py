@@ -107,10 +107,10 @@ def mmd_squared(X, Y, sigma=0.2):
     mmd2 -= 2 * np.sum(Kxy) / (n * m)
     return mmd2
 
-@autograd(manifold)
-def cost(R):
-    X_rotated = anp.dot(R, Xc.T).T
-    return mmd_squared_ag(X_rotated, Yc, sigma=0.2)
+# --- STEP 1: PCA INITIALIZATION ---
+print("\n" + "="*70)
+print("STEP 1: 3D PCA INITIALIZATION")
+print("="*70)
 
 def get_riemannian_pca_basis(data_centered):
     """
@@ -137,14 +137,6 @@ def get_riemannian_pca_basis(data_centered):
     
     return U_opt
 
-# Bundle manifold + objective into a pymanopt problem.
-problem = Problem(manifold=manifold, cost=cost)
-
-# --- STEP 1: PCA INITIALIZATION ---
-print("\n" + "="*70)
-print("STEP 1: 3D PCA INITIALIZATION")
-print("="*70)
-
 # Get principal axes basis for X and Y via manifold optimization respectively
 v_X = get_riemannian_pca_basis(Xc)
 v_Y = get_riemannian_pca_basis(Yc)
@@ -168,6 +160,14 @@ print("Generated 4 PCA-aligned 3D candidate starting points.")
 print("\n" + "="*70)
 print("STEP 2: OPTIMIZATION (4 CANDIDATES)")
 print("="*70)
+
+@autograd(manifold)
+def cost(R):
+    X_rotated = anp.dot(R, Xc.T).T
+    return mmd_squared_ag(X_rotated, Yc, sigma=0.2)
+
+# Bundle manifold + objective into a pymanopt problem.
+problem = Problem(manifold=manifold, cost=cost)
 
 optimizer = TrustRegions(max_iterations=100, min_gradient_norm=1e-6, verbosity=0)
 optimized_results = []
