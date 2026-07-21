@@ -1,3 +1,5 @@
+import itertools
+
 import numpy as np
 import autograd.numpy as anp
 import matplotlib.pyplot as plt
@@ -19,21 +21,17 @@ np.random.seed(42)
 # 3D DATA SETUP
 # ============================================================================
 
-# n = 200
-# z = np.random.randn(n, 3)
+X = np.loadtxt('emd_9515_X_1000.xyz')
+Y_original = np.loadtxt('emd_9515_Y_700.xyz') 
 
-z = np.loadtxt('emd_9515_1000.xyz')
-n = z.shape[0]
+X = X + np.array([2.0, -1.0, 3.0])
 
-# Anisotropic scaling to give the point cloud distinct principal axes
-
-X = z + np.array([2.0, -1.0, 3.0])   # Deliberately shifted
-
-# Build a rotated/noisy version.
 theta_x, theta_y, theta_z = 45, 30, -60
 R_true = Rotation.from_euler('xyz', [theta_x, theta_y, theta_z], degrees=True).as_matrix()
 
-Y = z @ R_true.T + np.array([-3.0, 4.0, 5.0]) + 5 * np.random.randn(n, 3)
+n_y = Y_original.shape[0]
+Y = Y_original @ R_true.T + np.array([-3.0, 4.0, 5.0]) + 5 * np.random.randn(n_y, 3)
+
 
 # Remove translation so we focus only on rotational alignment.
 Xc = X - X.mean(0)
@@ -59,7 +57,6 @@ print("="*70)
 print("3D POINT CLOUD ALIGNMENT VIA RIEMANNIAN OPTIMIZATION (3-STEP PIPELINE)")
 print("="*70)
 print("\nData Generation:")
-print(f"  Number of points: {n}")
 print(f"  Original X center: {X.mean(0).round(2)}")
 print(f"  Original Y center: {Y.mean(0).round(2)}")
 print(f"\nTrue Rotation Matrix:\n{np.round(R_true, 4)}")
@@ -114,7 +111,8 @@ def get_riemannian_pca_basis(data_centered):
     """
     Use Pymanopt to obtain ordered principal axes directly on the SO(3) manifold (Riemannian PCA).
     """
-    C = np.dot(data_centered.T, data_centered) # Covariance/Scatter matrix
+    N = data_centered.shape[0]
+    C = np.dot(data_centered.T, data_centered)/N # Covariance/Scatter matrix
     
     # Optimize directly on the 3D rotation group. 
     pca_manifold = SpecialOrthogonalGroup(3)
@@ -144,15 +142,42 @@ R_base = v_Y @ v_X.T
 
 # In 3D, SVD-matched principal axes have 4 valid sign combinations (ensuring det=1)
 # Corresponding to: Identity, 180° rotation around X-axis, 180° rotation around Y-axis, 180° rotation around Z-axis
-symmetries_3d = [
-    np.array([[ 1,  0,  0], [ 0,  1,  0], [ 0,  0,  1]]),
-    np.array([[ 1,  0,  0], [ 0, -1,  0], [ 0,  0, -1]]),
-    np.array([[-1,  0,  0], [ 0,  1,  0], [ 0,  0, -1]]),
-    np.array([[-1,  0,  0], [ 0, -1,  0], [ 0,  0,  1]])
-]
+# symmetries_3d = [
+#     np.array([[ 1,  0,  0], [ 0,  1,  0], [ 0,  0,  1]]),
+#     np.array([[ 1,  0,  0], [ 0, -1,  0], [ 0,  0, -1]]),
+#     np.array([[-1,  0,  0], [ 0,  1,  0], [ 0,  0, -1]]),
+#     np.array([[-1,  0,  0], [ 0, -1,  0], [ 0,  0,  1]])
+# ]
 
-pca_candidates = [R_base @ sym for sym in symmetries_3d]
-print("Generated 4 PCA-aligned 3D candidate starting points.")
+# pca_candidates = [R_base @ sym for sym in symmetries_3d]
+# print("Generated 4 PCA-aligned 3D candidate starting points.")
+
+
+
+
+
+print("Generating 24 PCA-aligned 3D candidates (covering sign flips AND axis swaps)...")
+
+symmetries_24 = []
+for perm in itertools.permutations([0, 1, 2]):
+    P = np.eye(3)[:, perm]
+    for signs in itertools.product([1, -1], repeat=3):
+        S = np.diag(signs)
+        sym_matrix = P @ S
+        if np.isclose(np.linalg.det(sym_matrix), 1.0):
+            if not any(np.allclose(sym_matrix, x) for x in symmetries_24):
+                symmetries_24.append(sym_matrix)
+
+pca_candidates = [R_base @ sym for sym in symmetries_24]
+print(f"Generated {len(pca_candidates)} candidate starting points.")
+# --------------------------------------------------------
+
+
+
+
+
+
+
 
 # --- STEP 2: OPTIMIZE THE 4 CANDIDATES ---
 print("\n" + "="*70)
@@ -186,17 +211,25 @@ for i, R_init in enumerate(pca_candidates):
 
 # --- STEP 3: BREAK SYMMETRY WITH KDTree ---
 print("\nSTEP 3: KDTree NEAREST NEIGHBOR SELECTION (BREAKING SYMMETRY)")
+
+overlap_ratio = 0.65 
+
 best_nn_error = float('inf')
 best_idx = -1
 
 for i, res in enumerate(optimized_results):
     # Use KDTree for fast batch nearest neighbor querying
     distances, _ = kdtree_Y.query(res['aligned_pts'])
-    nn_error = np.mean(distances)
     
-    print(f"Candidate {i+1}: KDTree NN Error = {nn_error:.4f}")
-    if nn_error < best_nn_error:
-        best_nn_error = nn_error
+    sorted_dists = np.sort(distances)
+    
+    k_keep = int(len(sorted_dists) * overlap_ratio)
+    
+    trimmed_nn_error = np.mean(sorted_dists[:k_keep])
+    
+    print(f"Candidate {i+1}: Trimmed NN Error = {trimmed_nn_error:.4f}")
+    if trimmed_nn_error < best_nn_error:
+        best_nn_error = trimmed_nn_error
         best_idx = i
 
 # Select the final winner
@@ -211,15 +244,17 @@ print(f"\n-> Selected Candidate {best_idx+1} as the True Global Optimum!")
 # FINAL KDTree POINT-TO-POINT MATCHING
 # ============================================================================
 # Extract final matching distances and indices for visualization
+
 final_distances, matched_indices = kdtree_Y.query(Xc_aligned)
-mean_matching_error = np.mean(final_distances)
+
+sorted_final_dists = np.sort(final_distances)
+final_trimmed_error = np.mean(sorted_final_dists[:int(len(sorted_final_dists) * overlap_ratio)])
 
 print("\n" + "="*70)
 print("FINAL RESULTS")
 print("="*70)
-print(f"Mean KDTree Matching Distance: {mean_matching_error:.4f}")
+print(f"Trimmed Mean KDTree Matching Distance (Top {overlap_ratio*100:.0f}%): {final_trimmed_error:.4f}")
 print(f"Found Rotation Matrix:\n{np.round(R_opt, 4)}")
-
 
 # ============================================================================
 # RESULTS EVALUATION
@@ -281,12 +316,17 @@ ax2.scatter(Yc[:, 0], Yc[:, 1], Yc[:, 2], alpha=0.5, label='Yc (Target)', s=20, 
 # ========================================
 # Point-to-Point KDTree Lines
 # ========================================
-for i in range(n):
-    p_x = Xc_aligned[i]
-    p_y = Yc[matched_indices[i]]
-    ax2.plot([p_x[0], p_y[0]], [p_x[1], p_y[1]], [p_x[2], p_y[2]], 'k-', alpha=0.2, linewidth=0.5)
 
-ax2.set_title(f'After Alignment + KDTree Matching\nMean NN Dist = {mean_matching_error:.4f}', fontweight='bold')
+k_keep = int(len(final_distances) * overlap_ratio)
+distance_threshold = np.sort(final_distances)[k_keep - 1]
+
+for i in range(Xc_aligned.shape[0]):
+    if final_distances[i] <= distance_threshold:
+        p_x = Xc_aligned[i]
+        p_y = Yc[matched_indices[i]]
+        ax2.plot([p_x[0], p_y[0]], [p_x[1], p_y[1]], [p_x[2], p_y[2]], 'k-', alpha=0.4, linewidth=0.8)
+
+ax2.set_title(f'After Alignment + KDTree Matching\nMean NN Dist = {final_trimmed_error:.4f}', fontweight='bold')
 ax2.legend()
 
 
