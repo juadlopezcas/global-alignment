@@ -1,0 +1,28 @@
+diff --git a/setup.py b/setup.py
+index 97f2941..b941920 100644
+--- a/setup.py
++++ b/setup.py
+@@ -40,8 +40,8 @@ autowrap_run([os.path.abspath('./src/goicpcc.pxd')], [], [], os.path.abspath('./
+ ext = Extension("py_goicp",
+                 sources = ['src/py_goicp.cpp'],
+                 language="c++",
+-                extra_compile_args=["-std=c++14"], #Release mode (no -g switch)
+-                extra_link_args=["-std=c++14"], #Release mode (no -g switch)
++                extra_compile_args=["/std:c++14"] if platform.system() == "Windows" else ["-std=c++14"],
++                extra_link_args=[] if platform.system() == "Windows" else ["-std=c++14"],
+ #                 extra_compile_args=["-std=c++14", "-g"], #Debug mode (no -g switch)
+ #                 extra_link_args=["-std=c++14",  "-g"], #Debug mode (no -g switch)
+                 include_dirs = [include_dir, data_dir],
+diff --git a/src/matrix.hpp b/src/matrix.hpp
+index 588a11b..7e0f985 100644
+--- a/src/matrix.hpp
++++ b/src/matrix.hpp
+@@ -27,7 +27,7 @@ Street, Fifth Floor, Boston, MA 02110-1301, USA
+ #include <iostream>
+ #include <vector>
+ 
+-#ifndef _MSC_VER
++#if !defined(_MSC_VER) || _MSC_VER >= 1600
+   #include <stdint.h>
+ #else
+   typedef __int8            int8_t;

@@ -1,4 +1,4 @@
-"""Compare source distributions under the same registration pipeline on SO(d).
+"""Controlled best-improvement sign search with one MMD solve on SO(d).
 
 Rows are points: Y = X @ R_true.T + noise and X_aligned = X @ R_est.T.
 All sources have theoretical covariance diag(d, d-1, ..., 1). The existing
@@ -18,8 +18,12 @@ To run one dataset::
 
     python numerical_experiments.py --dataset-types uniform_box --num-trials 2
 
-The method is a local, structured multi-start heuristic, not a global solver.
-Existing experiment files are unused.
+There is one final MMD optimization, initialized only by best-improvement
+pairwise greedy sign refinement. The two PCA optimizations are unchanged.
+First-improvement instead accepts the first improving pair; this script scores
+all pairs and accepts the best. Both use the same stopping convention and
+remain local heuristics. Results default to numerical_results/best_improvement_controlled;
+previous results and numerical_experiments_first_improvement.py are unchanged.
 """
 
 from __future__ import annotations
@@ -51,15 +55,25 @@ DATASET_SEED_IDS = {"gaussian_ellipsoid": 0, "uniform_box": 1, "laplace_product"
 
 
 @dataclass
-class Initialization:
-    label: str
+class GreedyResult:
     signs: np.ndarray
-    rotation: np.ndarray
-    initial_mmd: float
+    history: list[float]
+    accepted_pairs: list[tuple[int, int]]
+    runtime_seconds: float
+    num_pair_evaluations: int
+    converged: bool
+
+    @property
+    def num_accepted_moves(self) -> int:
+        return len(self.accepted_pairs)
+
+    @property
+    def stopping_criterion(self) -> str:
+        return "pairwise_local_optimum" if self.converged else "max_greedy_moves"
 
 
 @dataclass
-class CandidateResult:
+class OptimizationResult:
     label: str
     R: np.ndarray
     initial_mmd: float
@@ -83,8 +97,9 @@ class RegistrationResult:
     U_X: np.ndarray
     U_Y: np.ndarray
     final_mmd: float
-    candidates: list[CandidateResult]
-    selected_start: str
+    optimization: OptimizationResult
+    greedy: GreedyResult
+    R_init: np.ndarray
     pca_X: PCAResult
     pca_Y: PCAResult
 
@@ -97,8 +112,8 @@ class ExperimentConfig:
     seed: int = 42
     noise_std: float = 0.05
     sigma: float = 1.0
-    num_starts: int = 8
-    greedy_steps: int = 5
+    max_greedy_moves: int = 100
+    greedy_tolerance: float = 1e-12
     max_iterations: int = 100
     pca_max_iterations: int = 200
     min_gradient_norm: float = 1e-6
@@ -113,10 +128,12 @@ class ExperimentConfig:
             raise ValueError("Every dimension must be at least 2.")
         if len(set(self.dimensions)) != len(self.dimensions):
             raise ValueError("Dimensions must be unique.")
-        if self.n < 2 or self.num_trials < 1 or self.num_starts < 1:
-            raise ValueError("Require n >= 2, num_trials >= 1, num_starts >= 1.")
-        if self.seed < 0 or self.greedy_steps < 0:
-            raise ValueError("Seed and greedy_steps must be nonnegative.")
+        if self.n < 2 or self.num_trials < 1:
+            raise ValueError("Require n >= 2 and num_trials >= 1.")
+        if self.seed < 0 or self.max_greedy_moves < 0:
+            raise ValueError("Seed and max_greedy_moves must be nonnegative.")
+        if not np.isfinite(self.greedy_tolerance) or self.greedy_tolerance < 0:
+            raise ValueError("greedy_tolerance must be finite and nonnegative.")
         if self.max_iterations < 1 or self.pca_max_iterations < 1:
             raise ValueError("Optimizer iteration limits must be positive.")
         if not np.isfinite(self.noise_std) or self.noise_std < 0:
@@ -373,16 +390,31 @@ def greedy_sign_refinement(
     U_X: np.ndarray,
     U_Y: np.ndarray,
     sigma: float = 1.0,
-    max_steps: int = 5,
-) -> tuple[np.ndarray, list[float]]:
-    """Best-improving pair flips starting at I; no optimizer runs inside search.
+    max_greedy_moves: int = 100,
+    tolerance: float = 1e-12,
+) -> GreedyResult:
+    """Best-improvement pairwise greedy; one move is one accepted pair flip.
 
-    Evaluate in PCA coordinates. A pair flip updates the cross inner-product
-    matrix by two rank-one terms. Work is O(max_steps * d^2 * n * m), not an
-    enumeration of the 2^(d-1) orientation-preserving sign patterns.
+    Scan ALL pairs (i,j), i<j, in lexicographic order, then accept the lowest
+    candidate MMD among pairs improving the current score by more than tolerance.
+    Restart a complete scan after every accepted move. First-improvement differs
+    only by immediately accepting the first improving pair and restarting.
+    Both search all determinant-preserving two-axis flips, with no fixed pivot
+    or parity axis. They can take different paths to different pairwise local
+    minima; neither guarantees the global optimum over the 2^(d-1) sign patterns.
+
+    Normal termination requires a COMPLETE scan with no improvement. The move
+    limit is only a safety cap; reaching it does not certify local optimality.
+    A pair flip updates the cached PCA-coordinate cross term by two rank-one
+    terms. No TrustRegions solve occurs here. Pair counts exclude the initial
+    score and include every evaluated proposal, including the final full scan.
+    Timing includes setup, initial scoring, and all candidate scoring.
     """
-    if max_steps < 0:
-        raise ValueError("max_steps must be nonnegative.")
+    start_time = perf_counter()
+    if max_greedy_moves < 0:
+        raise ValueError("max_greedy_moves must be nonnegative.")
+    if not np.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative.")
     assert_rotation(U_X)
     assert_rotation(U_Y)
     objective = RotationMMD(Xc, Yc, sigma)
@@ -397,81 +429,31 @@ def greedy_sign_refinement(
 
     current = score(cross)
     history = [current]
-    for _ in range(max_steps):
+    accepted_pairs = []
+    num_pair_evaluations = 0
+    converged = False
+    for _ in range(max_greedy_moves):
         best_score, best_pair, best_cross = current, None, None
         for i in range(d - 1):
             flip_i = 2 * signs[i] * np.outer(X_axes[:, i], Y_axes[:, i])
             for j in range(i + 1, d):
                 candidate_cross = cross - flip_i - 2 * signs[j] * np.outer(X_axes[:, j], Y_axes[:, j])
                 candidate_score = score(candidate_cross)
-                if candidate_score < best_score - 1e-12:
+                num_pair_evaluations += 1
+                if candidate_score < current - tolerance and candidate_score < best_score:
                     best_score, best_pair, best_cross = candidate_score, (i, j), candidate_cross
+        # No early acceptance: every proposed pair above is scored before this.
         if best_pair is None:
+            converged = True
             break
+        # Starting at all +1 and flipping two signs keeps product +1 for every
+        # proposed and accepted pattern, not just the final one.
         signs[list(best_pair)] *= -1
         cross, current = best_cross, best_score
         history.append(current)
-    return signs, history
-
-
-def generate_initializations(
-    Xc: np.ndarray,
-    Yc: np.ndarray,
-    U_X: np.ndarray,
-    U_Y: np.ndarray,
-    rng: np.random.Generator,
-    num_starts: int = 8,
-    sigma: float = 1.0,
-    greedy_steps: int = 5,
-) -> list[Initialization]:
-    """Baseline, greedy result (if distinct), then bounded random sign starts.
-
-    This is a scalable approximation to the exhaustive multi-start idea in 2D,
-    not a guarantee of global convergence. Ordered PCA axes avoid factorial
-    permutation enumeration. The budget includes the baseline and greedy start.
-    """
-    if num_starts < 1:
-        raise ValueError("num_starts must be positive.")
-    assert_rotation(U_X)
-    assert_rotation(U_Y)
-    d = Xc.shape[1]
-    target_count = min(num_starts, 1 << (d - 1))
-    objective = RotationMMD(Xc, Yc, sigma)
-    starts: list[Initialization] = []
-    seen: set[tuple[int, ...]] = set()
-
-    def add(signs, label):
-        key = tuple(int(s) for s in signs)
-        if key in seen or len(starts) >= target_count:
-            return
-        # Column signs belong BETWEEN the two principal frames.
-        R_init = (U_Y * signs) @ U_X.T
-        assert_rotation(R_init)
-        starts.append(Initialization(label, np.array(signs, dtype=int), R_init, objective.evaluate(R_init)))
-        seen.add(key)
-
-    add(np.ones(d, dtype=int), "baseline")
-    if target_count > 1:
-        greedy_signs, _ = greedy_sign_refinement(Xc, Yc, U_X, U_Y, sigma, greedy_steps)
-        add(greedy_signs, "greedy")
-
-    for attempt in range(50 * target_count):
-        if len(starts) >= target_count:
-            break
-        signs = np.ones(d, dtype=int)
-        signs[:-1] = rng.choice([-1, 1], size=d - 1)
-        signs[-1] = int(np.prod(signs[:-1]))  # product of all signs is +1
-        add(signs, f"random_{attempt + 1}")
-
-    # Bounded fallback for collisions in small sign spaces. At most the requested
-    # number of bit patterns are inspected; no exponential list is constructed.
-    for pattern in range(target_count):
-        if len(starts) >= target_count:
-            break
-        signs = np.array([-1 if (pattern >> j) & 1 else 1 for j in range(d - 1)] + [1])
-        signs[-1] = int(np.prod(signs[:-1]))
-        add(signs, f"fallback_{pattern}")
-    return starts
+        accepted_pairs.append(best_pair)
+    return GreedyResult(signs, history, accepted_pairs, perf_counter() - start_time,
+                        num_pair_evaluations, converged)
 
 
 def register_point_clouds(
@@ -479,40 +461,42 @@ def register_point_clouds(
     Yc: np.ndarray,
     rng: np.random.Generator,
     *,
-    num_starts: int = 8,
     sigma: float = 1.0,
-    greedy_steps: int = 5,
+    max_greedy_moves: int = 100,
+    greedy_tolerance: float = 1e-12,
     max_iterations: int = 100,
     pca_max_iterations: int = 200,
     min_gradient_norm: float = 1e-6,
 ) -> RegistrationResult:
-    """Estimate rotation using only observed, centered/normalized point clouds."""
+    """Two unchanged PCA solves, then ONE MMD solve from the greedy rotation."""
     Xc, Yc = np.asarray(Xc, dtype=float), np.asarray(Yc, dtype=float)
     _validate_clouds(Xc, Yc)
     pca_X = estimate_pca_frame(Xc, rng, max_iterations=pca_max_iterations, min_gradient_norm=min_gradient_norm)
     pca_Y = estimate_pca_frame(Yc, rng, max_iterations=pca_max_iterations, min_gradient_norm=min_gradient_norm)
-    starts = generate_initializations(Xc, Yc, pca_X.frame, pca_Y.frame, rng, num_starts, sigma, greedy_steps)
+    greedy = greedy_sign_refinement(
+        Xc, Yc, pca_X.frame, pca_Y.frame, sigma, max_greedy_moves, greedy_tolerance,
+    )
+    R_init = (pca_Y.frame * greedy.signs) @ pca_X.frame.T
+    assert_rotation(R_init)
     objective = RotationMMD(Xc, Yc, sigma)
     problem = objective.problem(SpecialOrthogonalGroup(Xc.shape[1]))
-    candidates = []
-    for start in starts:
-        optimizer = TrustRegions(
-            max_iterations=max_iterations, min_gradient_norm=min_gradient_norm,
-            use_rand=False, verbosity=0,
-        )
-        result = optimizer.run(problem, initial_point=start.rotation)
-        assert_rotation(result.point)
-        final_mmd = objective.evaluate(result.point)
-        if not np.isfinite(final_mmd):
-            raise RuntimeError(f"Nonfinite final MMD for start {start.label}.")
-        candidates.append(CandidateResult(
-            start.label, result.point, start.initial_mmd, final_mmd,
-            result.iterations, float(result.gradient_norm), result.stopping_criterion,
-        ))
-    winner = min(candidates, key=lambda candidate: candidate.final_mmd)
+    initial_mmd = objective.evaluate(R_init)
+    optimizer = TrustRegions(
+        max_iterations=max_iterations, min_gradient_norm=min_gradient_norm,
+        use_rand=False, verbosity=0,
+    )
+    result = optimizer.run(problem, initial_point=R_init)
+    assert_rotation(result.point)
+    final_mmd = objective.evaluate(result.point)
+    if not np.isfinite(final_mmd):
+        raise RuntimeError("Nonfinite final MMD for greedy_best_improvement.")
+    optimization = OptimizationResult(
+        "greedy_best_improvement", result.point, initial_mmd, final_mmd,
+        result.iterations, float(result.gradient_norm), result.stopping_criterion,
+    )
     return RegistrationResult(
-        winner.R, pca_X.frame, pca_Y.frame, winner.final_mmd, candidates,
-        winner.label, pca_X, pca_Y,
+        result.point, pca_X.frame, pca_Y.frame, final_mmd, optimization,
+        greedy, R_init, pca_X, pca_Y,
     )
 
 
@@ -573,8 +557,9 @@ def run_trial(
     X, Y, R_true = generate_dataset(config.n, dimension, dataset_type, data_rng, config.noise_std)
     Xc, Yc, scale = center_and_normalize(X, Y)
     result = register_point_clouds(
-        Xc, Yc, fit_rng, num_starts=config.num_starts, sigma=config.sigma,
-        greedy_steps=config.greedy_steps, max_iterations=config.max_iterations,
+        Xc, Yc, fit_rng, sigma=config.sigma,
+        max_greedy_moves=config.max_greedy_moves, greedy_tolerance=config.greedy_tolerance,
+        max_iterations=config.max_iterations,
         pca_max_iterations=config.pca_max_iterations, min_gradient_norm=config.min_gradient_norm,
     )
     # Evaluation boundary: the fitting functions above never receive R_true.
@@ -591,21 +576,28 @@ def run_trial(
 
     rotation_error = float(np.linalg.norm(R_true - result.R_est, ord="fro"))
     normalized_rotation_error = rotation_error / np.sqrt(dimension)
-    winner = next(c for c in result.candidates if c.label == result.selected_start)
+    winner = result.optimization
     return {
         "dataset_type": dataset_type,
         "dimension": dimension, "trial": trial, "seed": config.seed,
         "n": config.n, "noise_std": config.noise_std, "sigma": config.sigma,
-        "requested_starts": config.num_starts, "actual_starts": len(result.candidates),
-        "greedy_steps": config.greedy_steps, "max_iterations": config.max_iterations,
+        # Fixed compatibility fields: this variant always requests/runs one start.
+        "requested_starts": 1, "actual_starts": 1,
+        "max_greedy_moves": config.max_greedy_moves, "greedy_tolerance": config.greedy_tolerance,
+        "max_iterations": config.max_iterations,
         "pca_max_iterations": config.pca_max_iterations, "min_gradient_norm": config.min_gradient_norm,
         "normalization_scale": scale, "frame_error": frame_error,
         "normalized_frame_error": normalized_frame_error, "rotation_error": rotation_error,
         "normalized_rotation_error": normalized_rotation_error,
         "final_mmd": result.final_mmd, "runtime_seconds": perf_counter() - start_time,
-        "selected_start": result.selected_start, "winner_iterations": winner.iterations,
+        "greedy_runtime_seconds": result.greedy.runtime_seconds,
+        "greedy_num_accepted_moves": result.greedy.num_accepted_moves,
+        "greedy_num_pair_evaluations": result.greedy.num_pair_evaluations,
+        "greedy_converged": result.greedy.converged,
+        "greedy_stopping_criterion": result.greedy.stopping_criterion,
+        "selected_start": winner.label, "winner_iterations": winner.iterations,
         "winner_gradient_norm": winner.gradient_norm, "winner_stopping_criterion": winner.stopping_criterion,
-        "unconverged_starts": sum(c.gradient_norm > config.min_gradient_norm for c in result.candidates),
+        "unconverged_starts": int(winner.gradient_norm > config.min_gradient_norm),
         "pca_X_gradient_norm": result.pca_X.gradient_norm,
         "pca_Y_gradient_norm": result.pca_Y.gradient_norm,
         "pca_X_stopping_criterion": result.pca_X.stopping_criterion,
@@ -614,6 +606,7 @@ def run_trial(
 
 
 METRICS = ("frame_error", "normalized_frame_error", "rotation_error", "normalized_rotation_error", "final_mmd", "runtime_seconds")
+METRICS += ("greedy_runtime_seconds", "greedy_num_accepted_moves", "greedy_num_pair_evaluations")
 
 
 def aggregate_results(rows: list[dict]) -> list[dict]:
@@ -721,7 +714,11 @@ def run_experiment(config: ExperimentConfig, output_dir: Path) -> list[dict]:
                         f"{dataset_type} d={dimension:2d} trial={trial + 1:2d}/{config.num_trials} "
                         f"frame={row['frame_error']:.5f} rotation={row['rotation_error']:.5f} "
                         f"MMD={row['final_mmd']:+.7f} starts={row['actual_starts']} "
-                        f"unconverged={row['unconverged_starts']} time={row['runtime_seconds']:.2f}s",
+                        f"unconverged={row['unconverged_starts']} time={row['runtime_seconds']:.2f}s "
+                        f"greedy_moves={row['greedy_num_accepted_moves']} "
+                        f"greedy_pairs={row['greedy_num_pair_evaluations']} "
+                        f"greedy_time={row['greedy_runtime_seconds']:.6f}s "
+                        f"greedy_stop={row['greedy_stopping_criterion']}",
                         flush=True,
                     )
     summaries = aggregate_results(rows)
@@ -740,12 +737,15 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--noise-std", type=float, default=0.05)
     parser.add_argument("--sigma", type=float, default=1.0)
-    parser.add_argument("--num-starts", type=int, default=8)
-    parser.add_argument("--greedy-steps", type=int, default=5)
+    parser.add_argument("--max-greedy-moves", type=int, default=100,
+                        help="Safety cap on accepted pair flips; normally stop after a full scan without improvement.")
+    parser.add_argument("--greedy-tolerance", type=float, default=1e-12,
+                        help="Minimum MMD decrease required to accept a pair flip.")
     parser.add_argument("--max-iterations", type=int, default=100)
     parser.add_argument("--pca-max-iterations", type=int, default=200)
     parser.add_argument("--min-gradient-norm", type=float, default=1e-6)
-    parser.add_argument("--output-dir", type=Path, default=Path(__file__).resolve().parent / "numerical_results")
+    parser.add_argument("--output-dir", type=Path,
+                        default=Path(__file__).resolve().parent / "numerical_results" / "best_improvement_controlled")
     args = parser.parse_args()
     config = ExperimentConfig(**{k: tuple(v) if k in ("dimensions", "dataset_types") else v
                                  for k, v in vars(args).items() if k != "output_dir"})
