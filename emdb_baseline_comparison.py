@@ -607,8 +607,10 @@ def run_rigid_cpd(Xc: np.ndarray, Yc: np.ndarray) -> MethodResult:
     pycpd transforms row points as s * Y @ R_library + t. Transposing ONLY
     the returned rotation converts to our s * Xc @ R_est.T + t convention.
     Scale and translation are kept and recorded, never forced away. Standard
-    package defaults are used (pycpd 2.0: max_iterations=100, tolerance=0.001,
-    w=0, initial R=I, s=1, t=0, with automatic initial variance).
+    package defaults are used except for max_iterations=1000 (pycpd 2.0:
+    tolerance=0.001, w=0, initial R=I, s=1, t=0, automatic initial variance).
+    The CPD-only convergence diagnosis required up to 526 iterations on the
+    fixed 20 trials; cap selection used convergence only, not rotation errors.
     Source: https://github.com/siavashk/pycpd/blob/master/pycpd/rigid_registration.py
     """
     pycpd = _require_dependency("pycpd")
@@ -617,7 +619,7 @@ def run_rigid_cpd(Xc: np.ndarray, Yc: np.ndarray) -> MethodResult:
     if Xc.shape[1] != 3:
         raise ValueError("CPD wrapper requires 3D clouds.")
     # pycpd names its fixed cloud X and its moving cloud Y.
-    registration = pycpd.RigidRegistration(X=Yc, Y=Xc)
+    registration = pycpd.RigidRegistration(X=Yc, Y=Xc, max_iterations=1000)
     transformed, (scale, R_library, translation) = registration.register()
     runtime = perf_counter() - start_time
     R_est = np.asarray(R_library, dtype=float).T.copy()
