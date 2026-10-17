@@ -1,0 +1,26 @@
+[
+  {
+    "trial": 0,
+    "goicp_raw_orthogonality_error_fro": 4.153608893449203e-08,
+    "goicp_raw_orthogonality_error_max": 3.161589479105942e-08,
+    "goicp_raw_determinant": 1.0000000150137354,
+    "goicp_projection_applied": false,
+    "goicp_projection_distance": 0.0
+  },
+  {
+    "trial": 1,
+    "goicp_raw_orthogonality_error_fro": 1.4040632954146552e-07,
+    "goicp_raw_orthogonality_error_max": 1.0254807136789168e-07,
+    "goicp_raw_determinant": 0.9999999162561923,
+    "goicp_projection_applied": false,
+    "goicp_projection_distance": 0.0
+  },
+  {
+    "trial": 2,
+    "goicp_raw_orthogonality_error_fro": 4.275674894940307e-07,
+    "goicp_raw_orthogonality_error_max": 2.3751076139166827e-07,
+    "goicp_raw_determinant": 0.9999998634407843,
+    "goicp_projection_applied": false,
+    "goicp_projection_distance": 0.0
+  }
+]

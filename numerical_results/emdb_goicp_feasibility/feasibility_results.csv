@@ -1,0 +1,2 @@
+dt_size,num_data_points,translation_width,mse_threshold,completed_or_timeout,runtime_seconds,rotation_angle_error_degrees,rotation_error,translation_norm,final_goicp_error,translation_min,trim_fraction,worker_elapsed_seconds,dt_runtime_seconds,search_runtime_seconds
+300,1000,0.1,0.001,completed,159.1369107000064,1.5792878367535303,0.03898021218781217,0.027243119444063466,3.12711501121521,-0.05,0.0,159.84743159997743,15.70657089992892,143.39408280001953

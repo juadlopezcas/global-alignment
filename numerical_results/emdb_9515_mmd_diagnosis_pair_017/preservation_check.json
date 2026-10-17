@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "protected_files": 90,
+  "changed_files": [],
+  "diagnosis_elapsed_seconds": 24.376962000038475,
+  "real_baselines_rerun": false,
+  "bandwidth_tuned": false,
+  "report_finalized_from_saved_diagnostics_without_refitting": true
+}

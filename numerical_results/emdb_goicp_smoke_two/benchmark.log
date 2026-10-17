@@ -1,0 +1,115 @@
+X_base shape=(1000, 3); Y_base shape=(1000, 3)
+Reusing validated Go-ICP convention: C:\Users\22898\Desktop\project\global-alignment\numerical_results\emdb_goicp_feasibility\final_convention_status.json
+icp convention passed: angle=0.00000000 deg
+cpd convention passed: angle=0.00000000 deg
+goicp convention passed: angle=0.00000000 deg
+Dependencies: Open3D 0.19.0; pycpd 2.0.0
+INITIALIZE THE GOICP SYSTEM :: 
+FINDING OUTERBNB :: 
+Error*: 16.3134 (Init)
+Error*: 3.12794 (ICP 0.035s)
+ICP-ONLY Rotation Matrix:
+   0.2304530    0.5496818    0.8029574 
+  -0.5987540    0.7305657   -0.3282793 
+  -0.7670623   -0.4051202    0.4974857 
+ICP-ONLY Translation Vector:
+  -0.0125287 
+  -0.0054007 
+  -0.0144073 
+LB=0.000000  L=3
+LB=0.042666  L=4
+LB=0.079896  L=4
+LB=0.103998  L=4
+LB=0.131458  L=4
+LB=0.158737  L=4
+LB=0.192632  L=4
+LB=0.240954  L=4
+LB=0.297753  L=4
+LB=0.382684  L=5
+LB=0.594166  L=5
+LB=0.969634  L=5
+LB=1.155313  L=5
+LB=1.306646  L=6
+LB=1.395351  L=5
+LB=1.452850  L=5
+Error*: 3.12712
+LB=1.504253  L=5
+LB=1.552746  L=5
+LB=1.603682  L=5
+LB=1.646600  L=5
+LB=1.690120  L=5
+LB=1.727224  L=5
+LB=1.762992  L=5
+LB=1.798842  L=5
+LB=1.831768  L=5
+LB=1.863152  L=5
+LB=1.893576  L=5
+LB=1.922507  L=5
+LB=1.952494  L=5
+LB=1.983483  L=5
+LB=2.011353  L=5
+LB=2.041005  L=5
+LB=2.072698  L=5
+LB=2.102068  L=5
+Error*: 3.12712, LB: 2.12732, epsilon: 1
+CLEARING THE GOICP SYSTEM :: 
+trial=1/2 method=ours angle=2.7641 deg rotation=0.06822 runtime=0.934s
+trial=1/2 method=icp  angle=58.4138 deg rotation=1.38017 runtime=0.010s
+trial=1/2 method=cpd  angle=1.5613 deg rotation=0.03854 runtime=6.445s
+trial=1/2 method=goicp angle=1.5793 deg rotation=0.03898 runtime=145.644s
+INITIALIZE THE GOICP SYSTEM :: 
+FINDING OUTERBNB :: 
+Error*: 23.0227 (Init)
+Error*: 9.97182 (ICP 0.01s)
+ICP-ONLY Rotation Matrix:
+   0.9228313   -0.0701137    0.3787696 
+   0.0253739    0.9922241    0.1218483 
+  -0.3843676   -0.1028344    0.9174348 
+ICP-ONLY Translation Vector:
+   0.0882657 
+   0.1098779 
+  -0.1386510 
+Error*: 6.04047
+Error*: 3.13146(ICP 0.023s)
+LB=0.000000  L=3
+LB=0.040404  L=4
+LB=0.083737  L=4
+LB=0.113201  L=4
+LB=0.142141  L=4
+LB=0.174551  L=4
+LB=0.208434  L=4
+LB=0.253259  L=4
+LB=0.304330  L=4
+LB=0.378118  L=4
+LB=0.526937  L=4
+LB=0.867385  L=5
+LB=1.078190  L=5
+LB=1.250319  L=6
+LB=1.368506  L=5
+LB=1.439588  L=5
+Error*: 3.12093
+LB=1.502823  L=5
+LB=1.560389  L=5
+LB=1.616114  L=7
+LB=1.660341  L=6
+LB=1.702194  L=5
+LB=1.741968  L=5
+LB=1.781876  L=5
+LB=1.817554  L=5
+LB=1.851603  L=5
+LB=1.884476  L=5
+LB=1.916207  L=5
+LB=1.946165  L=5
+LB=1.977036  L=5
+LB=2.005926  L=5
+LB=2.034307  L=5
+LB=2.062892  L=5
+LB=2.089712  L=7
+LB=2.117857  L=5
+Error*: 3.12093, LB: 2.12097, epsilon: 1
+CLEARING THE GOICP SYSTEM :: 
+trial=2/2 method=ours angle=2.7641 deg rotation=0.06822 runtime=0.986s
+trial=2/2 method=icp  angle=158.2732 deg rotation=2.77774 runtime=0.019s
+trial=2/2 method=cpd  angle=176.4740 deg rotation=2.82709 runtime=6.141s
+trial=2/2 method=goicp angle=1.2648 deg rotation=0.03122 runtime=209.813s
+Saved comparison CSVs, metadata, and three plots to C:\Users\22898\Desktop\project\global-alignment\numerical_results\emdb_goicp_smoke_two

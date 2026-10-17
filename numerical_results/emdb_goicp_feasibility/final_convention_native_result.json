@@ -1,0 +1,29 @@
+{
+  "status": "completed",
+  "result": {
+    "method": "goicp",
+    "rotation_error": 2.7877113607832833e-09,
+    "normalized_rotation_error": 1.6094859045712066e-09,
+    "rotation_angle_error_degrees": 0.0,
+    "runtime_seconds": 16.453031899989583,
+    "initialization": "goicp_search_bounds",
+    "goicp_implementation": "py_goicp (aalavandhaann/go-icp_cython)",
+    "goicp_translation": "[3.202394964981856e-05, 2.0385787293731455e-05, 1.385831300188487e-06]",
+    "goicp_translation_norm": 3.7987290021163126e-05,
+    "goicp_runtime_seconds": 16.453031899989583,
+    "goicp_dt_runtime_seconds": 16.42406370001845,
+    "goicp_search_runtime_seconds": 0.0007600999670103192,
+    "goicp_mse_threshold": 0.001,
+    "goicp_dt_size": 300,
+    "goicp_trim_fraction": 0.0,
+    "goicp_num_data_points": 80,
+    "goicp_requested_num_data_points": 1000,
+    "goicp_num_inliers": 80,
+    "goicp_dt_expand_factor": 2.0,
+    "goicp_final_error": 0.0,
+    "goicp_final_error_type": "distance_transform_SSE",
+    "goicp_max_coordinate_roundoff": 2.9627150510691536e-08,
+    "goicp_translation_min": -0.05,
+    "goicp_translation_width": 0.1
+  }
+}

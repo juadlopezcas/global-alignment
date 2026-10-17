@@ -1,0 +1,33 @@
+{
+  "R_projected": [
+    [
+      -0.31499270764103227,
+      -0.00040371129785924526,
+      -0.9490940054336869
+    ],
+    [
+      0.5511970140157185,
+      0.8139960889972884,
+      -0.18328180170784833
+    ],
+    [
+      0.7726328014478339,
+      -0.5808702127965483,
+      -0.2561803076205619
+    ]
+  ],
+  "projection_distance": 5.966102471354767e-07,
+  "projected_orthogonality_error_fro": 1.1267533089989422e-15,
+  "projected_orthogonality_error_max": 8.881784197001252e-16,
+  "projected_determinant": 1.0000000000000009,
+  "raw_rotation_error": 0.029475347585678893,
+  "raw_normalized_rotation_error": 0.017017599863049494,
+  "raw_trace_formula_angle_degrees": 1.1951670298705068,
+  "raw_angle_note": "Trace-formula diagnostic only; raw matrix is not exactly in SO(3), so not an exact SO(3) geodesic angle.",
+  "projected_metrics": {
+    "rotation_error": 0.029475350530646358,
+    "normalized_rotation_error": 0.017017601563327253,
+    "rotation_angle_error_degrees": 1.1941928707868792,
+    "runtime_seconds": 123.3341910999734
+  }
+}

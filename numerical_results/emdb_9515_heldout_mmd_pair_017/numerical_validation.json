@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "evaluation_id": "n1000_rep000",
+  "reproducibility_exact": true,
+  "full_original_mmd_checks": [
+    {
+      "comparison": "Delta_ours_true",
+      "blocked_cross_only": 3.1452372609708235e-05,
+      "full_original_difference": 3.145237261037437e-05,
+      "absolute_discrepancy": 6.661338147750939e-16,
+      "cached_original_difference": 3.145237261081846e-05
+    },
+    {
+      "comparison": "Delta_goicp_true",
+      "blocked_cross_only": 1.4420261602587914e-06,
+      "full_original_difference": 1.4420261600367468e-06,
+      "absolute_discrepancy": 2.220446049250313e-16,
+      "cached_original_difference": 1.442026160480836e-06
+    },
+    {
+      "comparison": "Delta_ours_goicp",
+      "blocked_cross_only": 3.0010346449449443e-05,
+      "full_original_difference": 3.001034645033762e-05,
+      "absolute_discrepancy": 8.881784197001252e-16,
+      "cached_original_difference": 3.001034645033762e-05
+    }
+  ],
+  "chunk_size_checks": [
+    {
+      "chunk_size": 257,
+      "max_difference_discrepancy": 0.0
+    },
+    {
+      "chunk_size": 512,
+      "max_difference_discrepancy": 0.0
+    },
+    {
+      "chunk_size": 1024,
+      "max_difference_discrepancy": 1.1102230246251565e-15
+    }
+  ],
+  "identical_rotation_differences_exactly_zero": true,
+  "rotation_convention_passed": true,
+  "numerical_tolerance": 3e-14
+}

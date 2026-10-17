@@ -1,0 +1,20 @@
+{
+  "R_true": {
+    "coordinates_radians": [
+      0.2340734175189223,
+      -1.3877787807814457e-17,
+      1.3877787807814457e-17
+    ],
+    "out_of_plane_residual_radians": 1.3877787807814457e-17,
+    "marked_on_contour": true
+  },
+  "R_goicp": {
+    "coordinates_radians": [
+      0.23160981430667155,
+      -0.006602737554547294,
+      0.0034554462603328395
+    ],
+    "out_of_plane_residual_radians": 0.0034554462603328395,
+    "marked_on_contour": false
+  }
+}

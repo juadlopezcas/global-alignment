@@ -1,0 +1,96 @@
+{
+  "pair_id": "pair_017",
+  "manifest": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\data\\emdb_9515_resampling_pairs\\resampling_manifest.csv",
+  "manifest_sha256": "708bce47eb0bb558f1fd510d1f51936e93a07f117e37a113e42146f31b06b289",
+  "trial_csv": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_independent_resampling\\baseline_trial_results.csv",
+  "trial_csv_sha256": "51709ce7f82ebda55641b143821226be648eca8573cb0c1d69f4d28ab1d9656d",
+  "pair": {
+    "pair_id": "pair_017",
+    "emdb_id": "EMD-9515",
+    "map_file": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\data\\emd_9515.map",
+    "threshold": "0.035",
+    "num_eligible_voxels": "78351",
+    "num_points": "1000",
+    "voxel_size_used": "1.3200000524520874",
+    "source_file": "pair_017_X.xyz",
+    "target_unrotated_file": "pair_017_Z.xyz",
+    "master_seed": "42",
+    "source_sampling_seed": "9444009686024241478",
+    "target_sampling_seed": "15578235927152897344",
+    "rotation_seed": "16395412951127518001",
+    "ours_fit_seed": "2330588202912440548",
+    "R_true": "[[-0.832634548039801, 0.5449970508411188, 0.09847803808483803], [0.3765270650525496, 0.6874591616196546, -0.6209889454636971], [-0.4061367733824025, -0.47997720329166094, -0.7776083883465035]]",
+    "source_sha256": "b6061af2a34d7eacd5f5fceb321d5d561e6f52559f009ec57be7ceb2d4dae552",
+    "target_sha256": "a7fc9a295c7e3b8ff9f6a8b278f94c190182061edf510e67f2c44fb57363fb79",
+    "map_sha256": "9da0aaa5d8f9a0ff5cb4cb1c6b5971453220aa82d7ea9430fd3b098acdaa60ad",
+    "source_target_overlap_count": "14"
+  },
+  "package_versions": {
+    "numpy": "1.25.2",
+    "scipy": "1.9.3",
+    "pymanopt": "2.2.0",
+    "autograd": "1.5",
+    "matplotlib": "3.8.4",
+    "open3d": "0.19.0",
+    "pycpd": "2.0.0",
+    "py-goicp": "0.0.4"
+  },
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": null,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null
+  },
+  "method_settings": {
+    "sigma": 1.0,
+    "max_greedy_moves": 100,
+    "greedy_tolerance": 1e-12,
+    "max_iterations": 100,
+    "pca_max_iterations": 200,
+    "min_gradient_norm": 1e-06,
+    "icp_max_correspondence_distance": 2.0,
+    "goicp_mse_threshold": 0.001,
+    "goicp_dt_size": 300,
+    "goicp_trim_fraction": 0.0,
+    "goicp_num_data_points": 1000,
+    "goicp_translation_min": -0.05,
+    "goicp_translation_width": 0.1,
+    "cpd_max_iterations": 1000,
+    "cpd_tolerance": 0.001,
+    "cpd_w": 0,
+    "cpd_initialization": "identity R, t=0, s=1, automatic sigma2; scale estimated",
+    "goicp_dt_expand_factor": 2.0,
+    "goicp_cleanup_guard": 5e-06
+  },
+  "dtype": "float64",
+  "left_rotation_axis_basis_uvw": [
+    [
+      -0.7395399225552894,
+      -0.40879312274252755,
+      -0.5347605873148554
+    ],
+    [
+      -0.33126217898748245,
+      0.9126270776162697,
+      -0.23953535433011203
+    ],
+    [
+      0.5859573975293608,
+      0.0,
+      -0.8103418588969833
+    ]
+  ],
+  "goicp_translation_excluded": true,
+  "goicp_projection_scope": "explicit geometry-only correction; preserve saved raw rotation and benchmark policy",
+  "trustregions_default_settings": {
+    "miniter": 3,
+    "kappa": 0.1,
+    "theta": 1.0,
+    "rho_prime": 0.1,
+    "use_rand": false,
+    "rho_regularization": 1000.0,
+    "max_time": 1000,
+    "min_step_size": 1e-10,
+    "max_cost_evaluations": 5000
+  },
+  "diagnostic_script_sha256": "5eccc91cd95f7a59771f50351534529a5681e8bf38de7d07faf947f3e75fc98c"
+}

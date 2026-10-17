@@ -1,0 +1,16 @@
+{
+  "stages": [
+    {
+      "num_points": 5000,
+      "planned_repetitions": 10,
+      "predicted_kernel_seconds": 12.758012511767447,
+      "basis": "median measured n=1000 three-candidate kernel time * (n/1000)^2 * repetitions"
+    },
+    {
+      "num_points": 10000,
+      "planned_repetitions": 5,
+      "predicted_kernel_seconds": 25.516025023534894,
+      "basis": "median measured n=1000 three-candidate kernel time * (n/1000)^2 * repetitions"
+    }
+  ]
+}

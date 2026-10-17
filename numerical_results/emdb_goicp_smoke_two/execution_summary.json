@@ -1,0 +1,7 @@
+{
+  "goicp_convention_reused": true,
+  "wall_runtime_seconds": 372.9358731,
+  "timing_scope": "Complete CLI invocation including imports, non-Go-ICP preflight, both trials, CSVs, plots, and log capture",
+  "exit_code": 0,
+  "num_trials": 2
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "path": "truth",
+    "start_mmd": -0.0003940107467064191,
+    "endpoint_mmd": -0.0003728362750852199,
+    "minimum_mmd": -0.00039401023169904903,
+    "minimum_t": -0.0062500000000000056,
+    "segment_minimum_mmd": -0.0003940107467064191,
+    "maximum_mmd_on_segment": -0.0003728362750852199,
+    "barrier_above_start_on_segment": 2.117447162119923e-05,
+    "barrier_above_higher_endpoint": 0.0,
+    "lower_region_away_from_start": false,
+    "total_angle_degrees": 13.411418920037836,
+    "maximum_mmd_sampled_full_range": -0.0003612732416216069,
+    "barrier_above_start_full_range": 3.273750508481221e-05
+  },
+  {
+    "path": "goicp",
+    "start_mmd": -0.0003940107467064191,
+    "endpoint_mmd": -0.0003731553173478286,
+    "minimum_mmd": -0.00039401021681872983,
+    "minimum_t": -0.0062500000000000056,
+    "segment_minimum_mmd": -0.0003940107467064191,
+    "maximum_mmd_on_segment": -0.0003731553173478286,
+    "barrier_above_start_on_segment": 2.0855429358590527e-05,
+    "barrier_above_higher_endpoint": 0.0,
+    "lower_region_away_from_start": false,
+    "total_angle_degrees": 13.277132372810994,
+    "maximum_mmd_sampled_full_range": -0.00036175803423010855,
+    "barrier_above_start_full_range": 3.225271247631056e-05
+  }
+]

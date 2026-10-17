@@ -1,0 +1,26 @@
+{
+  "h_radians": 0.001,
+  "hessian_rotation_vector_coordinates": [
+    [
+      0.0007842479998743102,
+      -2.1231516544872875e-05,
+      -0.00018413753855028858
+    ],
+    [
+      -2.1231516544872875e-05,
+      0.006632547178142545,
+      -0.0016625550380844345
+    ],
+    [
+      -0.00018413753855028858,
+      -0.0016625550380844345,
+      0.009226108099724684
+    ]
+  ],
+  "hessian_eigenvalues": [
+    0.000779635857719487,
+    0.005822815047429227,
+    0.01004045237259282
+  ],
+  "metric_note": "Unit Euclidean rotation axes have Frobenius metric norm sqrt(2); metric-unit Hessian eigenvalues are half these."
+}

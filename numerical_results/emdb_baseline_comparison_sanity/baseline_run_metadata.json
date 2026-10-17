@@ -1,0 +1,48 @@
+{
+  "config": {
+    "source_cloud": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\emd_9515_1000.xyz",
+    "resampled_cloud": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\emd_9515_X_1000.xyz",
+    "num_trials": 2,
+    "seed": 42,
+    "sigma": 1.0,
+    "max_greedy_moves": 100,
+    "greedy_tolerance": 1e-12,
+    "max_iterations": 100,
+    "pca_max_iterations": 200,
+    "min_gradient_norm": 1e-06,
+    "icp_max_correspondence_distance": 2.0
+  },
+  "package_versions": {
+    "numpy": "1.25.2",
+    "scipy": "1.9.3",
+    "pymanopt": "2.2.0",
+    "autograd": "1.5",
+    "matplotlib": "3.8.4",
+    "open3d": "0.19.0",
+    "pycpd": "2.0.0"
+  },
+  "convention_checks": [
+    {
+      "method": "icp",
+      "rotation_error": 1.1616172636829685e-16,
+      "normalized_rotation_error": 6.706600398826783e-17,
+      "rotation_angle_error_degrees": 0.0,
+      "runtime_seconds": 0.0002541000721976161
+    },
+    {
+      "method": "cpd",
+      "rotation_error": 6.954423983966108e-16,
+      "normalized_rotation_error": 4.0151385592016225e-16,
+      "rotation_angle_error_degrees": 0.0,
+      "runtime_seconds": 0.0030688000842928886
+    }
+  ],
+  "runtime_scope": "per-method adapter/setup and fitting; excludes shared preprocessing, imports, evaluation and plotting",
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "success_thresholds": "descriptive only; strict angular error < 1, < 5, < 10 degrees",
+  "protocol": "fixed independent samples; one random rotation and one shared preprocessing per trial"
+}

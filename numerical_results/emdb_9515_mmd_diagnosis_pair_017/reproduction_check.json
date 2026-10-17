@@ -1,0 +1,36 @@
+{
+  "R_final_fro_difference": 0.0,
+  "angular_error_difference_degrees": 0.0,
+  "final_mmd_difference": 0.0,
+  "angular_error_degrees": 13.41141892003788,
+  "frame_error": 0.3772587341281159,
+  "iterations": 1,
+  "gradient_norm": 9.351565605546873e-07,
+  "greedy_signs": [
+    -1,
+    -1,
+    1
+  ],
+  "greedy_accepted_pairs": [
+    [
+      0,
+      1
+    ]
+  ],
+  "greedy_history": [
+    -5.03100753008745e-05,
+    -0.0003920881231935791
+  ],
+  "normalization_scale": 109.99945903538965,
+  "goicp_raw_orthogonality_error_fro": 5.732231142632212e-07,
+  "goicp_raw_determinant": 0.9999997629278136,
+  "goicp_raw_singular_values": [
+    1.0000000324088762,
+    1.0000000149021402,
+    0.9999997156168104
+  ],
+  "goicp_geometry_projection_distance": 2.86611597156035e-07,
+  "goicp_raw_rotation_only_mmd": -0.0003731681211807114,
+  "goicp_raw_benchmark_angle_degrees": 0.44965159946951744,
+  "passed": true
+}

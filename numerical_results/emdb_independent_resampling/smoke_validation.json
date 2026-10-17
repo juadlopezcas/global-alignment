@@ -1,0 +1,12 @@
+{
+  "num_pairs": 20,
+  "num_rows": 80,
+  "all_trial_metrics_finite": true,
+  "all_rotations_valid_SO3": true,
+  "shared_inputs_and_frozen_rotations_validated": true,
+  "cpd_all_converged": true,
+  "goicp_all_completed": true,
+  "goicp_any_translation_near_boundary": false,
+  "goicp_projection_count": 1,
+  "smoke_passed": true
+}

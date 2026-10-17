@@ -1,0 +1,86 @@
+{
+  "config": {
+    "source_cloud": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\emd_9515_1000.xyz",
+    "resampled_cloud": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\emd_9515_X_1000.xyz",
+    "num_trials": 1,
+    "seed": 42,
+    "sigma": 1.0,
+    "max_greedy_moves": 100,
+    "greedy_tolerance": 1e-12,
+    "max_iterations": 100,
+    "pca_max_iterations": 200,
+    "min_gradient_norm": 1e-06,
+    "icp_max_correspondence_distance": 2.0,
+    "goicp_mse_threshold": 0.001,
+    "goicp_dt_size": 300,
+    "goicp_trim_fraction": 0.0,
+    "goicp_num_data_points": 1000
+  },
+  "package_versions": {
+    "numpy": "1.25.2",
+    "scipy": "1.9.3",
+    "pymanopt": "2.2.0",
+    "autograd": "1.5",
+    "matplotlib": "3.8.4",
+    "open3d": "0.19.0",
+    "pycpd": "2.0.0",
+    "py-goicp": "0.0.4"
+  },
+  "convention_checks": [
+    {
+      "method": "icp",
+      "rotation_error": 1.1616172636829685e-16,
+      "normalized_rotation_error": 6.706600398826783e-17,
+      "rotation_angle_error_degrees": 0.0,
+      "runtime_seconds": 0.003668299992568791
+    },
+    {
+      "method": "cpd",
+      "rotation_error": 6.954423983966108e-16,
+      "normalized_rotation_error": 4.0151385592016225e-16,
+      "rotation_angle_error_degrees": 0.0,
+      "runtime_seconds": 0.007297799922525883
+    },
+    {
+      "method": "goicp",
+      "rotation_error": 2.7877113607832833e-09,
+      "normalized_rotation_error": 1.6094859045712066e-09,
+      "rotation_angle_error_degrees": 0.0,
+      "runtime_seconds": 9.777975599979982,
+      "initialization": "goicp_official_search_bounds",
+      "goicp_implementation": "py_goicp (aalavandhaann/go-icp_cython)",
+      "goicp_translation": "[3.202394964981856e-05, 2.0385787293731455e-05, 1.385831300188487e-06]",
+      "goicp_translation_norm": 3.7987290021163126e-05,
+      "goicp_runtime_seconds": 9.777975599979982,
+      "goicp_dt_runtime_seconds": 9.765060000005178,
+      "goicp_search_runtime_seconds": 0.0003029999788850546,
+      "goicp_mse_threshold": 0.001,
+      "goicp_dt_size": 300,
+      "goicp_trim_fraction": 0.0,
+      "goicp_num_data_points": 80,
+      "goicp_requested_num_data_points": 1000,
+      "goicp_num_inliers": 80,
+      "goicp_dt_expand_factor": 2.0,
+      "goicp_final_error": 0.0,
+      "goicp_final_error_type": "distance_transform_SSE",
+      "goicp_max_coordinate_roundoff": 2.9627150510691536e-08
+    }
+  ],
+  "runtime_scope": "per-method adapter/setup and fitting; excludes shared preprocessing, imports, evaluation and plotting",
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "success_thresholds": "descriptive only; strict angular error < 1, < 5, < 10 degrees",
+  "protocol": "fixed independent samples; one random rotation and one shared preprocessing per trial",
+  "goicp_implementation": {
+    "backend": "py_goicp",
+    "module_path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\data\\.venv-emdb-baselines\\Lib\\site-packages\\py_goicp.cp311-win_amd64.pyd",
+    "repository": "https://github.com/aalavandhaann/go-icp_cython",
+    "runtime_scope": "conversion/setup + DT construction + search + result extraction + cleanup",
+    "final_error_definition": "native distance-transform SSE returned by Register()",
+    "coordinate_storage": "upstream POINT3D uses float32; no recentering or rescaling",
+    "subset_rule": "first N source rows in original order; 0 means all; counts above input size use all"
+  }
+}

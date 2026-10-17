@@ -1,0 +1,72 @@
+{
+  "status": "completed",
+  "result": {
+    "R_est": [
+      [
+        0.23591503500938416,
+        0.5645852088928223,
+        0.7909409999847412
+      ],
+      [
+        -0.5984034538269043,
+        0.7256964445114136,
+        -0.33952608704566956
+      ],
+      [
+        -0.7656744718551636,
+        -0.3932025134563446,
+        0.5090524554252625
+      ]
+    ],
+    "runtime_seconds": 159.1369107000064,
+    "diagnostics": {
+      "initialization": "goicp_search_bounds",
+      "goicp_implementation": "py_goicp (aalavandhaann/go-icp_cython)",
+      "goicp_translation": "[-0.01875000074505806, -0.0062500000931322575, -0.01875000074505806]",
+      "goicp_translation_norm": 0.027243119444063466,
+      "goicp_runtime_seconds": 159.1369107000064,
+      "goicp_dt_runtime_seconds": 15.70657089992892,
+      "goicp_search_runtime_seconds": 143.39408280001953,
+      "goicp_mse_threshold": 0.001,
+      "goicp_dt_size": 300,
+      "goicp_trim_fraction": 0.0,
+      "goicp_num_data_points": 1000,
+      "goicp_requested_num_data_points": 1000,
+      "goicp_num_inliers": 1000,
+      "goicp_dt_expand_factor": 2.0,
+      "goicp_final_error": 3.12711501121521,
+      "goicp_final_error_type": "distance_transform_SSE",
+      "goicp_max_coordinate_roundoff": 2.9500219711486864e-08,
+      "goicp_translation_min": -0.05,
+      "goicp_translation_width": 0.1
+    }
+  },
+  "worker_elapsed_seconds": 159.84743159997743,
+  "worker_pid": 298904,
+  "worker_exitcode": 0,
+  "evaluation": {
+    "rotation_error": 0.03898021218781217,
+    "normalized_rotation_error": 0.022505235999702087,
+    "rotation_angle_error_degrees": 1.5792878367535303,
+    "runtime_seconds": 159.1369107000064,
+    "R_true": [
+      [
+        0.23677572004635805,
+        0.5529841714664149,
+        0.7988402621952221
+      ],
+      [
+        -0.613685722881656,
+        0.7225557280961861,
+        -0.318281405876325
+      ],
+      [
+        -0.753211186804702,
+        -0.4148755547185127,
+        0.5104421438020754
+      ]
+    ],
+    "det_R_est": 1.0000000150137354,
+    "orthogonality_error": 4.153608893449203e-08
+  }
+}

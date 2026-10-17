@@ -1,0 +1,43 @@
+{
+  "status": "stopped_by_user_during_first_emdb_goicp_search",
+  "processes_confirmed_terminated": true,
+  "last_observed_process_elapsed_seconds": 648.5,
+  "last_observed_process_cpu_seconds": 640.23,
+  "timing_note": "Last observed process duration includes startup, convention checks and other methods; no complete per-trial Go-ICP runtime was returned.",
+  "completed_emdb_trials": 0,
+  "trial_csv_rows": 0,
+  "two_trial_smoke_started": false,
+  "twenty_trial_benchmark_started": false,
+  "unit_tests_passed": 15,
+  "parameters_changed_during_run": false,
+  "standalone_convention_check": {
+    "method": "goicp",
+    "rotation_error": 2.7877113607832833e-09,
+    "normalized_rotation_error": 1.6094859045712066e-09,
+    "rotation_angle_error_degrees": 0.0,
+    "runtime_seconds": 12.236377599998377,
+    "initialization": "goicp_official_search_bounds",
+    "goicp_implementation": "py_goicp (aalavandhaann/go-icp_cython)",
+    "goicp_translation": "[3.202394964981856e-05, 2.0385787293731455e-05, 1.385831300188487e-06]",
+    "goicp_translation_norm": 3.7987290021163126e-05,
+    "goicp_runtime_seconds": 12.236377599998377,
+    "goicp_dt_runtime_seconds": 12.22481499996502,
+    "goicp_search_runtime_seconds": 0.00030289997812360525,
+    "goicp_mse_threshold": 0.001,
+    "goicp_dt_size": 300,
+    "goicp_trim_fraction": 0.0,
+    "goicp_num_data_points": 80,
+    "goicp_requested_num_data_points": 1000,
+    "goicp_num_inliers": 80,
+    "goicp_dt_expand_factor": 2.0,
+    "goicp_final_error": 0.0,
+    "goicp_final_error_type": "distance_transform_SSE",
+    "goicp_max_coordinate_roundoff": 2.9627150510691536e-08
+  },
+  "remaining_checks": [
+    "real-data Go-ICP rotation and angular errors",
+    "real-data Go-ICP SO(3)",
+    "real-data Go-ICP translation norm and complete runtime",
+    "two-trial smoke test"
+  ]
+}

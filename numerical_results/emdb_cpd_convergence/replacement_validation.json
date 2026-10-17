@@ -1,0 +1,16 @@
+{
+  "reference_csv_unchanged": true,
+  "non_cpd_rows_preserved_field_for_field": true,
+  "same_twenty_trials_and_ground_truth": true,
+  "same_cloud_hashes": true,
+  "rotations_finite_SO3": true,
+  "scale_translation_finite_recorded": true,
+  "no_ground_truth_in_fitting_or_selection": true,
+  "selected_cap": 1000,
+  "combined_output": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_baseline_comparison_cpd_converged",
+  "protected_source_nodes_unchanged": 42,
+  "original_data_and_result_files_hash_unchanged": 8,
+  "all_60_non_cpd_rows_and_their_aggregates_preserved": true,
+  "saved_combined_aggregate_matches_recomputed_metrics": true,
+  "cpd_only_unit_tests_passed": 4
+}

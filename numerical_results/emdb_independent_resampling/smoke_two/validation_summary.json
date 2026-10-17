@@ -1,0 +1,23 @@
+{
+  "eligible_voxels": 78351,
+  "frozen_pairs": 20,
+  "frozen_clouds": 40,
+  "files_shape_1000_by_3_finite_unique": true,
+  "all_80_stream_seeds_distinct": true,
+  "uniform_choice_without_replacement_no_density_weighting": true,
+  "repeated_generation_byte_identical_xyz_and_manifest": true,
+  "tests_passed": 8,
+  "smoke_pair_ids": [
+    "pair_000",
+    "pair_001"
+  ],
+  "smoke_result_rows": 8,
+  "same_preprocessed_input_arrays_and_R_true_per_method": true,
+  "rotations_valid_SO3": true,
+  "both_cpd_fits_converged": true,
+  "goicp_translation_boundary_hits": 0,
+  "goicp_projection_count": 0,
+  "pair_000_preserved_field_for_field_in_two_pair_run": true,
+  "original_files_sha256_unchanged": 17,
+  "full_twenty_pair_benchmark_run": false
+}

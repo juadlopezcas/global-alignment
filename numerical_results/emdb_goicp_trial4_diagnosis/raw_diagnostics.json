@@ -1,0 +1,94 @@
+{
+  "trial": 3,
+  "source_metadata": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_baseline_comparison\\baseline_run_metadata.json",
+  "config": {
+    "source_cloud": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\emd_9515_1000.xyz",
+    "resampled_cloud": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\emd_9515_X_1000.xyz",
+    "num_trials": 20,
+    "seed": 42,
+    "sigma": 1.0,
+    "max_greedy_moves": 100,
+    "greedy_tolerance": 1e-12,
+    "max_iterations": 100,
+    "pca_max_iterations": 200,
+    "min_gradient_norm": 1e-06,
+    "icp_max_correspondence_distance": 2.0,
+    "goicp_mse_threshold": 0.001,
+    "goicp_dt_size": 300,
+    "goicp_trim_fraction": 0.0,
+    "goicp_num_data_points": 1000,
+    "goicp_translation_min": -0.05,
+    "goicp_translation_width": 0.1
+  },
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": null,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null
+  },
+  "R_true": [
+    [
+      -0.3306808032082049,
+      -0.005206595481366498,
+      -0.9437282965732613
+    ],
+    [
+      0.5378039230889473,
+      0.8206876519132915,
+      -0.1929733616517712
+    ],
+    [
+      0.7755108939916405,
+      -0.5713533664559448,
+      -0.2685855244419272
+    ]
+  ],
+  "normalization_scale": 109.61067619257526,
+  "Xc_sha256": "05c7625a3aacb649a893a75c625fc9634f3041d5b569ea265ff718033905fc05",
+  "Yc_sha256": "01a0a9aecf35312814d1132650f6be72f75b1dc2576d49a7ae472271608e2ac4",
+  "source_sha256": "e88563d8d5a50d8cc477dcd3aad18e3d6555c576f1a926a715cf1a2fa45edc7b",
+  "target_sha256": "c982de1cb660436ee8f78703818ad28808a9c54a1386a38705e20a061e3505f9",
+  "module_path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\data\\.venv-emdb-baselines\\Lib\\site-packages\\py_goicp.cp311-win_amd64.pyd",
+  "projection_applied": false,
+  "dt_runtime_seconds": 11.080234300112352,
+  "search_runtime_seconds": 112.22952860000078,
+  "final_goicp_error": 3.1291933059692383,
+  "R_raw": [
+    [
+      -0.31499267444146284,
+      -0.00040369696149446835,
+      -0.9490939579651211
+    ],
+    [
+      0.5511968100261356,
+      0.8139955606193734,
+      -0.1832817561913676
+    ],
+    [
+      0.7726327963640055,
+      -0.5808700411120199,
+      -0.2561803114462518
+    ]
+  ],
+  "wrapper_return_type": "list",
+  "wrapper_element_type": "float",
+  "wrapper_array_dtype": "float64",
+  "orthogonality_error_fro": 1.193220147751071e-06,
+  "orthogonality_error_max": 1.0596592356915124e-06,
+  "determinant": 0.9999992909318903,
+  "singular_values": [
+    0.9999999523320925,
+    0.9999999290558964,
+    0.9999994095438277
+  ],
+  "raw_frobenius_error": 0.029475347585678893,
+  "raw_trace_cosine": 0.999782446437173,
+  "translation": [
+    0.01129216259542779,
+    0.00524446053579941,
+    0.015650730263447675
+  ],
+  "translation_norm": 0.01999906648252195,
+  "strict_validation": "failed",
+  "strict_validation_error": "Go-ICP returned an invalid SO(3) rotation: Rotation is not orthogonal.",
+  "diagnostic_elapsed_seconds": 123.3341910999734
+}
