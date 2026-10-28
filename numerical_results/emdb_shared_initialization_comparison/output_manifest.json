@@ -1,0 +1,110 @@
+{
+  "directory": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison",
+  "files": [
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\aggregated_results.csv",
+      "sha256": "f97b973e95f8f23e016b45f2aec64fce71592d099e3c645f63e26ec88a6d1cbc"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\angular-error-initialization-comparison.pdf",
+      "sha256": "38ff3d34b71fa4dba1e80771178fdc7cc2b7487635f7e5375b797c88dc813f0e"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\angular-error-initialization-comparison.png",
+      "sha256": "109f15f0263443224f1be7769f5380262c140945199f22c9c98632dcee900994"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\checkpoint_io_migration_validation.json",
+      "sha256": "31951a134026e77dd7d1c4b07f8e116c080eecc2428efa30b6d04ec3374f4fcf"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\checkpoint_validation.json",
+      "sha256": "1d97e0f878653dbc4264f26d9ebccd724998b260c710ce5af6a6413d8d138384"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\driver_before_checkpoint_retry.py",
+      "sha256": "25a3ec42d1096d15166cdd5f88e1aa1e7605b46800cd789a548ac64d035c6ec7"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\experiment_failure.json",
+      "sha256": "bf3d828ac255307644604f78764a4d92c944fed4c47ffaeeddf57b5c00d6a7f5"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\experiment_failure_original.json",
+      "sha256": "dbf0ed3cd4c44a8beb402f3d0b78d60c741fa63d6c29b9aea13c637b532cbeda"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\experiment_metadata.json",
+      "sha256": "15f63f43f25dd0d995fe310fd09c497896c6a144d582c72efd595969cb465d27"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\final_validation.json",
+      "sha256": "3cd45cb34aeb9f0864112886161b78ddf72523e4a98c2341cbbbf7fbdbcce695"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\initialization_diagnostics.csv",
+      "sha256": "68e48510c9b85d7b632eefc297662dd24a74b700bc9bbbb019c8561106ab4adf"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\metadata_before_checkpoint_retry.json",
+      "sha256": "b31b105cfc8f2a776970bea3e51074b1eb0036fcc82aca1623e6d5853f0ba243"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\paired_comparison_summary.csv",
+      "sha256": "ca9b0e2a39a1635e6750711c9159e89ad81606bfc4e205c3e9b07bf84de2bb29"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\pairwise_results.csv",
+      "sha256": "8d50b70791c9b15ffd90e76cffa8059a69b09b851a65dcb4d88ee52cba9ec604"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\preservation_check.json",
+      "sha256": "fb04b003b02db4ffbb65387dc4d62fe7a693a267a4b9d99bb9aecc249dee5de6"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\protected_file_hashes.json",
+      "sha256": "d698232badd79370f81c0b7ece5eeae23bb2103c95d9ac325d3ec74dcf9fb201"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\REPORT.md",
+      "sha256": "b66cda471089b9a8023e659829bc987b2a43002f871ec28109eb308a43eb641c"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\resume_validation.json",
+      "sha256": "af147e7b0745605bb449decb71c9a1cd45889e006cff4d073171ef4dd7a15f66"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\runtime-initialization-comparison.pdf",
+      "sha256": "27b0293e163018ab0220e9018c5b29323f681895a8b25a9e617fbdbaf3d6da2c"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\runtime-initialization-comparison.png",
+      "sha256": "c66ea75822d354a93bea0ec263204052bcdcc4de7b9a5a27a52d1ce33ce1e39c"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\runtime_ledger.json",
+      "sha256": "3bcb1cfab488cbdc8c860083fa708894ba8141f49540143b365572299edffb2f"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\shared-initialization-refinement-by-pair.pdf",
+      "sha256": "ca5851ae91bf1cc94b8cc15b9fd693aff0ab0c40216677456f576596b8aaf3f1"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\shared-initialization-refinement-by-pair.png",
+      "sha256": "863000d151291eb9697883b5a775e695d3123f501f8fa1536daf93bf6eb19741"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\smoke_validation.json",
+      "sha256": "521fe2e8ad2a2f79a0e8c44a3a00ac009fe5a1146275acbdf774e3c2b443aeb7"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\trial_results.csv",
+      "sha256": "3786edd58abbf22ee930741d81f3ebed40a07cda954b84e14f5940526701c96e"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\validation_results.json",
+      "sha256": "46e69ee16efc214b216d9cb65c51605e74026a72889da600b96bbb75437d00a2"
+    }
+  ],
+  "inventory_file": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\output_manifest.json"
+}

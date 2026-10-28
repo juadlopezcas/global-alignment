@@ -1,0 +1,7 @@
+{
+  "exception_type": "PermissionError",
+  "message": "[WinError 5] \u62d2\u7edd\u8bbf\u95ee\u3002: 'C:\\\\Users\\\\22898\\\\Desktop\\\\project\\\\global-alignment\\\\numerical_results\\\\emdb_shared_initialization_comparison\\\\trial_results.csv.1xc0_rtm.tmp' -> 'C:\\\\Users\\\\22898\\\\Desktop\\\\project\\\\global-alignment\\\\numerical_results\\\\emdb_shared_initialization_comparison\\\\trial_results.csv'",
+  "completed_rows": 98,
+  "completed_initializations": 14,
+  "checkpoint": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\trial_results.csv"
+}

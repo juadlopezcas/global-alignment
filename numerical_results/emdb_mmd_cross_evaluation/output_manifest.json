@@ -1,0 +1,58 @@
+{
+  "directory": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_mmd_cross_evaluation",
+  "files": [
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_mmd_cross_evaluation\\aggregated_diagnostics.csv",
+      "sha256": "07133d505c939a1644e9c60b78df3a85c7ce9bc960c72800db5d2ee356895216"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_mmd_cross_evaluation\\candidate_mmd_values.csv",
+      "sha256": "3b70aabf1d6be589c90657170efac33af8460644c4288b77d25530847ba2b9ce"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_mmd_cross_evaluation\\ground-truth-mmd-difference-by-pair.pdf",
+      "sha256": "72e800bfec5f43b3c5155cc51e0d2d1614031f3f534e10aaa2571c339034ff56"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_mmd_cross_evaluation\\ground-truth-mmd-difference-by-pair.png",
+      "sha256": "5eccdc1d38c3fa28260bd19c2fd32238ae6c86a1a4aa40e3f7a1eb320ce80383"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_mmd_cross_evaluation\\lowest_loss_counts.csv",
+      "sha256": "22caa1a1ca76d8eb90301fe4546d494abcc745bfdf5db340608c94094b2c07f2"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_mmd_cross_evaluation\\mmd-loss-difference-by-pair.pdf",
+      "sha256": "a93f2ff1579b549a56eb7aef4b9708270a4c363ddf30b89e5456389c215973a4"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_mmd_cross_evaluation\\mmd-loss-difference-by-pair.png",
+      "sha256": "263d4c6178b22dcea44ab4b50bd839543bb13ea3dc1a12ed0f5bae9e07022263"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_mmd_cross_evaluation\\mmd-loss-vs-angular-error-by-pair.pdf",
+      "sha256": "07b71a2d76afe1ae856057af5e3c2641787df96a86bf574fdb4730fbc7ab8a46"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_mmd_cross_evaluation\\mmd-loss-vs-angular-error-by-pair.png",
+      "sha256": "c04d1e8e6c1bd698182b77a7f15e07a54e4febc48092dc67f2898cefb4816f91"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_mmd_cross_evaluation\\pairwise_mmd_differences.csv",
+      "sha256": "f7bf271f60aa6a5980d292d0d8aed0596cde3ca54a24ccf3a286a0b356355c93"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_mmd_cross_evaluation\\protected_file_hashes.json",
+      "sha256": "67938c73a5393ea0cc4a05ce060d95e8e08cc5e75f1a294bf74a62498913bb5b"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_mmd_cross_evaluation\\REPORT.md",
+      "sha256": "ccb162eebd6b87dd778d11eed984d738b36f80f0a4ef219e874f978aafa6f9c4"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_mmd_cross_evaluation\\validation_results.json",
+      "sha256": "63324a03a75f908c8c78fb5427caf5737aba97b1c46e9e5f7530e39678b2c1d8"
+    }
+  ],
+  "inventory_file": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_mmd_cross_evaluation\\output_manifest.json"
+}

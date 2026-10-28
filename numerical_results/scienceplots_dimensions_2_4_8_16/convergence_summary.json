@@ -1,0 +1,13 @@
+{
+  "greedy_safety_cap_trials": 0,
+  "final_MMD_above_gradient_tolerance": 0,
+  "PCA_X_above_gradient_tolerance": 0,
+  "PCA_Y_above_gradient_tolerance": 0,
+  "final_stopping_criteria": {
+    "Terminated - min grad norm reached after 1 iterations": 231,
+    "Terminated - min grad norm reached after 3 iterations": 1,
+    "Terminated - min grad norm reached after 2 iterations": 8
+  },
+  "maximum_greedy_accepted_moves": 6,
+  "maximum_final_iterations": 3
+}

@@ -1,0 +1,9 @@
+{
+  "initialization_computations": 20,
+  "common_initialization_seconds_counted_once": 6.480728200171143,
+  "new_registration_adapter_seconds": 239.6016692997655,
+  "new_local_refinements": 80,
+  "reused_identity_ICP_CPD_GoICP_rows": 60,
+  "historical_runtime_not_added_to_new_execution_cost": true,
+  "unique_init_plus_new_fit_seconds": 246.08239749993663
+}

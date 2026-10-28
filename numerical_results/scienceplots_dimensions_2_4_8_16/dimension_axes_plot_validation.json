@@ -1,0 +1,126 @@
+{
+  "passed": true,
+  "source_csv": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\aggregated_results.csv",
+  "source_csv_sha256": "1b0f4017acb8138077f2dd98b289a11c5733c7f9000672f58a8311630a962d8a",
+  "styles": [
+    "science",
+    "no-latex"
+  ],
+  "SciencePlots_version": "2.2.2",
+  "png_dpi": 600,
+  "plotted_records": 48,
+  "figures": [
+    {
+      "metric": "frame_error",
+      "variant": "loglog",
+      "png": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\frame-error-vs-dimension-scienceplots-loglog-base2.png",
+      "pdf": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\frame-error-vs-dimension-scienceplots-loglog-base2.pdf",
+      "x_axis_base": 2,
+      "y_axis_base": 10,
+      "dimension_labels": [
+        "2",
+        "4",
+        "8",
+        "16"
+      ],
+      "equal_x_tick_pixel_spacing": true,
+      "means_and_errorbar_endpoints_match_aggregates": true,
+      "omitted_nonpositive_lower_whiskers": [
+        {
+          "dataset_type": "gaussian_ellipsoid",
+          "dimension": 8
+        }
+      ],
+      "pdf_vector_with_embedded_truetype": true
+    },
+    {
+      "metric": "frame_error",
+      "variant": "semilogx",
+      "png": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\frame-error-vs-dimension-scienceplots-semilogx-base2.png",
+      "pdf": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\frame-error-vs-dimension-scienceplots-semilogx-base2.pdf",
+      "x_axis_base": 2,
+      "y_axis_base": null,
+      "dimension_labels": [
+        "2",
+        "4",
+        "8",
+        "16"
+      ],
+      "equal_x_tick_pixel_spacing": true,
+      "means_and_errorbar_endpoints_match_aggregates": true,
+      "omitted_nonpositive_lower_whiskers": [],
+      "pdf_vector_with_embedded_truetype": true
+    },
+    {
+      "metric": "normalized_frame_error",
+      "variant": "loglog",
+      "png": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\normalized-frame-error-vs-dimension-scienceplots-loglog-base2.png",
+      "pdf": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\normalized-frame-error-vs-dimension-scienceplots-loglog-base2.pdf",
+      "x_axis_base": 2,
+      "y_axis_base": 10,
+      "dimension_labels": [
+        "2",
+        "4",
+        "8",
+        "16"
+      ],
+      "equal_x_tick_pixel_spacing": true,
+      "means_and_errorbar_endpoints_match_aggregates": true,
+      "omitted_nonpositive_lower_whiskers": [
+        {
+          "dataset_type": "gaussian_ellipsoid",
+          "dimension": 8
+        }
+      ],
+      "pdf_vector_with_embedded_truetype": true
+    },
+    {
+      "metric": "normalized_frame_error",
+      "variant": "semilogx",
+      "png": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\normalized-frame-error-vs-dimension-scienceplots-semilogx-base2.png",
+      "pdf": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\normalized-frame-error-vs-dimension-scienceplots-semilogx-base2.pdf",
+      "x_axis_base": 2,
+      "y_axis_base": null,
+      "dimension_labels": [
+        "2",
+        "4",
+        "8",
+        "16"
+      ],
+      "equal_x_tick_pixel_spacing": true,
+      "means_and_errorbar_endpoints_match_aggregates": true,
+      "omitted_nonpositive_lower_whiskers": [],
+      "pdf_vector_with_embedded_truetype": true
+    }
+  ],
+  "previous_file_hashes": {
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\aggregated_results.csv": "1b0f4017acb8138077f2dd98b289a11c5733c7f9000672f58a8311630a962d8a",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\convergence_summary.json": "c6f9eaabc8ae3d147f26f707c8dc5fbe59a9836e84dc64e17b4b10a212eadb1d",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\export_validation.json": "7f624bb4c155a44123dd0ea879ff9ddbb55fd3d6da82cef50f1185e9a538de44",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\frame-error-vs-dimension-scienceplots-linear.pdf": "7d04542586cb407c4849db957350a38a349bd054799769917049574dcc00e571",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\frame-error-vs-dimension-scienceplots-linear.png": "717f1e38f477a2ac61ad2ae6bf8743aa07695a3d0e27d811bd29ce819871b4d5",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\frame-error-vs-dimension-scienceplots-log.pdf": "deef46c0ce46cf317453ecd2186a498c3eecc2cee8b5ba54128bef497956fda0",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\frame-error-vs-dimension-scienceplots-log.png": "cb8ea6670983dfee3c980302a0050546856fb596a6720957ae77cc4461ff7e5b",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\generator_validation.csv": "57369a0bad3ba09b7a8d5196ff62f8687459c663924cb52306c5422531005efd",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\matching_reference_comparison.csv": "480a1cfc147bd448e25dceb57111d397320fd8526aac4c6b8ff4f0d9bb8c9af4",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\normalized-frame-error-vs-dimension-scienceplots-linear.pdf": "8bec433f108f7bb6cd46c2cfa500e2d3924c9449fb0c40deca9da06af6b7db8d",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\normalized-frame-error-vs-dimension-scienceplots-linear.png": "b72c818c2836bbb08f773f48970cb7835a7f0cad281e7ce7eaa4da59ff5a5c4b",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\normalized-frame-error-vs-dimension-scienceplots-log.pdf": "a0f3bcd77029bcc22473974b55f9d001aaaec997e10c017eedc65a0ddfe22d56",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\normalized-frame-error-vs-dimension-scienceplots-log.png": "215b912621b865dc3b724414b2f8ae3d5fe52ce44ac50a7cfa1ba70eabfd9b5a",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\normalized-rotation-error-vs-dimension-scienceplots-linear.pdf": "b8ddbb0cb1084eaabc434544c4e547b2c3020b8567d1a5369d159d5564edc970",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\normalized-rotation-error-vs-dimension-scienceplots-linear.png": "a5c13e4ffde5c2bb40115d5ead690759251b289bece4eaeb8919fcb19f481dc5",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\plot_data.csv": "99ce4e9e8b7d0362850341501b6b962ac2e311b8cfb268e04bddd80e3ee94631",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\preservation_check.json": "cb2c62e052c0b92ff4e2dfdc9a0fa7ce25322de5bb06deac78531ca36bfb3210",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\protected_file_hashes.json": "6ea99997bfee7b8a05bb046067925365d5ff16cb96c04084ba5b8aceee0ffd1c",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\README.md": "e2d22cf3fecba5d3200cae526c003a438a2b98bb86119607f2f59e2240672bb9",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\rotation-error-vs-dimension-scienceplots-linear.pdf": "fe4cdf5a8c87a7aaa5d8688b81ef5428f09ac211b7d25f89d17234aa56bc0d90",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\rotation-error-vs-dimension-scienceplots-linear.png": "c7f45b05dff6c36e96166433079a81643358436b8a6053e7213a2fd4d7be21d6",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\run_metadata.json": "09561bf420c277d0c02bc36c82aa5a8d791f63f5126478d98da3a3410b2a7845",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\trial_results.csv": "399dbcfeeda68e76106e807b445f30b705cfbd7ffd1ce0b1a75a074edffe664d",
+    "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\scienceplots_dimensions_2_4_8_16\\validation.json": "00c42e2f38be7353ab71373dbee946c7b3892463c55930ebf8e6e310eadf7df5"
+  },
+  "previous_files_unchanged": true,
+  "changed_previous_files": [],
+  "data_generation_or_optimization_run": false,
+  "numerical_core_and_pymanopt_not_imported": true
+}

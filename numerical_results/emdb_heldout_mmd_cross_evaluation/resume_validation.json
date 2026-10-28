@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "completed_rows_reused": 700,
+  "new_experiment_repetitions": 0,
+  "deterministic_validation_replays": 1,
+  "trial_CSV_bitwise_unchanged": true,
+  "first_full_run_elapsed_seconds": 672.4125975000206,
+  "repetition_runtime_sum_seconds": 616.7296344990609
+}

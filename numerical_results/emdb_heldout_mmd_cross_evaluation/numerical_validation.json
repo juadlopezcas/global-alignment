@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "dense_checks_n1000": [
+    {
+      "candidate": "R_init",
+      "blocked_mmd": -0.00034516414537266726,
+      "dense_mmd": -0.0003451641453724452,
+      "independent_mmd": -0.0003451641453724452,
+      "max_absolute_discrepancy": 2.220446049250313e-16
+    },
+    {
+      "candidate": "R_mmd",
+      "blocked_mmd": -0.00034206657980417887,
+      "dense_mmd": -0.0003420665798037348,
+      "independent_mmd": -0.0003420665798037348,
+      "max_absolute_discrepancy": 4.440892098500626e-16
+    },
+    {
+      "candidate": "R_icp",
+      "blocked_mmd": -0.000366076118873071,
+      "dense_mmd": -0.00036607611887284897,
+      "independent_mmd": -0.00036607611887418123,
+      "max_absolute_discrepancy": 1.1102230246251565e-15
+    },
+    {
+      "candidate": "R_cpd",
+      "blocked_mmd": -0.0003666934935475652,
+      "dense_mmd": -0.000366693493546677,
+      "independent_mmd": -0.00036669349354689906,
+      "max_absolute_discrepancy": 8.881784197001252e-16
+    },
+    {
+      "candidate": "R_true",
+      "blocked_mmd": -0.00036416825647411777,
+      "dense_mmd": -0.0003641682564732296,
+      "independent_mmd": -0.0003641682564732296,
+      "max_absolute_discrepancy": 8.881784197001252e-16
+    }
+  ],
+  "chunk_checks": [
+    {
+      "chunk_size": 257,
+      "max_absolute_discrepancy": 4.440892098500626e-16
+    },
+    {
+      "chunk_size": 1024,
+      "max_absolute_discrepancy": 8.881784197001252e-16
+    }
+  ],
+  "same_seed_exact_arrays_and_hashes": true,
+  "identical_rotation_deltas_exactly_zero": true,
+  "numerical_tolerance": 3e-14,
+  "legacy_pair_017": {
+    "passed": true,
+    "repetitions_replayed": 35,
+    "exact_original_seeds_and_samples": true,
+    "R_mmd_R_true_identical": true,
+    "same_estimator_sigma_sampling_preprocessing": true,
+    "max_absolute_delta_discrepancy": 4.440892098500626e-16,
+    "old_difference_sign": "Ours-True; negate for new True-MMD",
+    "GoICP_not_included": true
+  },
+  "all_candidates_SO3_and_CPD_composition_verified": true,
+  "candidates_unmodified": true,
+  "no_fitting_calls": true,
+  "sampling_protocol_reused": true,
+  "sigma": 1.0
+}

@@ -1,0 +1,87 @@
+{
+  "passed": true,
+  "trial_count": 240,
+  "groups": [
+    {
+      "dataset_type": "gaussian_ellipsoid",
+      "dimension": 2,
+      "trials": 20
+    },
+    {
+      "dataset_type": "gaussian_ellipsoid",
+      "dimension": 4,
+      "trials": 20
+    },
+    {
+      "dataset_type": "gaussian_ellipsoid",
+      "dimension": 8,
+      "trials": 20
+    },
+    {
+      "dataset_type": "gaussian_ellipsoid",
+      "dimension": 16,
+      "trials": 20
+    },
+    {
+      "dataset_type": "uniform_box",
+      "dimension": 2,
+      "trials": 20
+    },
+    {
+      "dataset_type": "uniform_box",
+      "dimension": 4,
+      "trials": 20
+    },
+    {
+      "dataset_type": "uniform_box",
+      "dimension": 8,
+      "trials": 20
+    },
+    {
+      "dataset_type": "uniform_box",
+      "dimension": 16,
+      "trials": 20
+    },
+    {
+      "dataset_type": "laplace_product",
+      "dimension": 2,
+      "trials": 20
+    },
+    {
+      "dataset_type": "laplace_product",
+      "dimension": 4,
+      "trials": 20
+    },
+    {
+      "dataset_type": "laplace_product",
+      "dimension": 8,
+      "trials": 20
+    },
+    {
+      "dataset_type": "laplace_product",
+      "dimension": 16,
+      "trials": 20
+    }
+  ],
+  "all_numeric_fields_finite": true,
+  "all_best_improvement_single_final_MMD_start": true,
+  "full_greedy_scan_counts_verified": true,
+  "core_sha256": "a0b406c1e31282832e1f192282e8f7d7350347247e6d429df6f89ef26990f8ca",
+  "plot_source": "saved aggregated_results.csv",
+  "style_package_version": "2.2.2",
+  "styles": [
+    "science",
+    "no-latex"
+  ],
+  "latex_required": false,
+  "log_nonpositive_lower_bounds_flagged": 2,
+  "png_dpi": 600,
+  "pdf_fonttype": 42,
+  "reference_comparison": {
+    "reference_csv": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\best_improvement_controlled\\trial_results.csv",
+    "reference_rows": 61,
+    "matching_rows": 20,
+    "max_absolute_metric_difference": 0.0,
+    "scope": "Only overlapping identical per-trial settings and best-improvement strategy; no comparisons of d=4/8/16, first-improvement, multi-start or runtimes. The old trial CSV may be partial even if an old aggregate CSV exists."
+  }
+}

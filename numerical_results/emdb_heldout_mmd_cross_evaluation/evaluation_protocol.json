@@ -1,0 +1,112 @@
+{
+  "signature": {
+    "design": [
+      [
+        1000,
+        20
+      ],
+      [
+        5000,
+        10
+      ],
+      [
+        10000,
+        5
+      ]
+    ],
+    "master_seed": 20261027,
+    "seed_namespace": 1213149744,
+    "sigma": 1.0,
+    "chunk_size": 512,
+    "candidate_set_sha256": "b9e446e331223614a350650bee36c3d45692b5056081d4e5cac8fed70f1696df",
+    "source_signature": {
+      "manifest": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\data\\emdb_9515_resampling_pairs\\resampling_manifest.csv",
+      "manifest_sha256": "708bce47eb0bb558f1fd510d1f51936e93a07f117e37a113e42146f31b06b289",
+      "dataset_identity": {
+        "emdb_id": "EMD-9515",
+        "map_file": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\data\\emd_9515.map",
+        "map_sha256": "9da0aaa5d8f9a0ff5cb4cb1c6b5971453220aa82d7ea9430fd3b098acdaa60ad",
+        "contour_threshold": 0.035,
+        "num_points": 1000,
+        "master_seed": 42
+      },
+      "method_settings": {
+        "sigma": 1.0,
+        "max_greedy_moves": 100,
+        "greedy_tolerance": 1e-12,
+        "max_iterations": 100,
+        "pca_max_iterations": 200,
+        "min_gradient_norm": 1e-06,
+        "icp_max_correspondence_distance": 2.0,
+        "goicp_mse_threshold": 0.001,
+        "goicp_dt_size": 300,
+        "goicp_trim_fraction": 0.0,
+        "goicp_num_data_points": 1000,
+        "goicp_translation_min": -0.05,
+        "goicp_translation_width": 0.1,
+        "cpd_max_iterations": 1000,
+        "cpd_tolerance": 0.001,
+        "cpd_w": 0,
+        "cpd_initialization": "identity R, t=0, s=1, automatic sigma2; scale estimated",
+        "goicp_dt_expand_factor": 2.0,
+        "goicp_cleanup_guard": 5e-06
+      },
+      "package_versions": {
+        "numpy": "1.25.2",
+        "scipy": "1.9.3",
+        "pymanopt": "2.2.0",
+        "autograd": "1.5",
+        "matplotlib": "3.8.4",
+        "open3d": "0.19.0",
+        "pycpd": "2.0.0",
+        "py-goicp": "0.0.4"
+      },
+      "registration_source_sha256": "a373554dbd58cd623b67e74b80829a03cfdced8ac07c6f5d6e6537209ccb84b0",
+      "driver_source_sha256": "b262faa319e03c7f86623e0e8d93cefa621aea6b118e24e34a0171da4ba7ef5b",
+      "generator_source_sha256": "5a7fdc32f3723324a1d1e7a9d8533c774d8c49d9a206c2e47a657fa887e441e0",
+      "diagnostics_source_sha256": "8d940d70a61117af139a6ab3e35e86bf09f5a71c9c180ec4fc45af38b57c414a",
+      "thread_environment": {
+        "OPENBLAS_NUM_THREADS": null,
+        "OMP_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      }
+    },
+    "source_sha256": {
+      "C:\\Users\\22898\\Desktop\\project\\global-alignment\\diagnose_emdb_heldout_mmd_cross_evaluation.py": "ff742aaa9e589a4d7f24e042061f1360909794ac62fcbc3378f5041fea68637a",
+      "C:\\Users\\22898\\Desktop\\project\\global-alignment\\diagnose_emdb_heldout_mmd.py": "ef606e8e70de756a079f21bf681010986bba01814bae7c73675dc5252a7ed144",
+      "C:\\Users\\22898\\Desktop\\project\\global-alignment\\diagnose_emdb_mmd_cross_evaluation.py": "976c05431aafa8300e196e83da8bb9ced29e26fe9769e336e40858bbb462a8d3",
+      "C:\\Users\\22898\\Desktop\\project\\global-alignment\\emdb_baseline_comparison.py": "a373554dbd58cd623b67e74b80829a03cfdced8ac07c6f5d6e6537209ccb84b0",
+      "C:\\Users\\22898\\Desktop\\project\\global-alignment\\emdb_independent_resampling_comparison.py": "b262faa319e03c7f86623e0e8d93cefa621aea6b118e24e34a0171da4ba7ef5b",
+      "C:\\Users\\22898\\Desktop\\project\\global-alignment\\emdb_shared_initialization_comparison.py": "3ef13d271f5083b8207fcb725587fbfd2bede326a1db3cfbd295367753be6094",
+      "C:\\Users\\22898\\Desktop\\project\\global-alignment\\generate_emdb_resampling_pairs.py": "5a7fdc32f3723324a1d1e7a9d8533c774d8c49d9a206c2e47a657fa887e441e0",
+      "C:\\Users\\22898\\Desktop\\project\\global-alignment\\research_plot_style.py": "65275c578cb49340c32c839d677d50a8a3fc612f6c2e7c605cddc9ff6d7d2b0d"
+    },
+    "training_results_sha256": "f7bf271f60aa6a5980d292d0d8aed0596cde3ca54a24ccf3a286a0b356355c93",
+    "old_results_sha256": "ef898d8325d7977693df5da09f07886448c226372f8959fa90c3b64ec4eb0739",
+    "versions": {
+      "numpy": "1.25.2",
+      "scipy": "1.9.3",
+      "mrcfile": "1.5.4",
+      "matplotlib": "3.8.4",
+      "SciencePlots": "2.2.2",
+      "threadpoolctl": "3.6.0"
+    }
+  },
+  "status": "completed",
+  "completed_repetitions": 700,
+  "planned_repetitions": 700,
+  "protocol": "reuse previous.sample_pair: independent uniform voxel draws; %.4f; B@R_true.T; center separately/common radius once",
+  "CI": "pointwise Student-t on independent paired repetition deltas; conditional on fixed fits; approximate normal mean; no multiplicity correction",
+  "no_fitting": true,
+  "GoICP_included": false,
+  "shared_evaluation_across_pairs": false,
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": null,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null
+  },
+  "resumed_rows": 700,
+  "invocation_elapsed_seconds": 9.111447399947792,
+  "evaluation_repetition_runtime_sum_seconds": 616.7296344990609,
+  "full_evaluation_elapsed_seconds": 672.4125975000206
+}

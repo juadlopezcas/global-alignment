@@ -1,0 +1,117 @@
+{
+  "passed": true,
+  "seed": 2026102701,
+  "points": 80,
+  "R_true": [
+    [
+      0.9875560450550206,
+      -0.13645101036780075,
+      -0.07819321994196579
+    ],
+    [
+      0.12121960951514585,
+      0.9772026745407977,
+      -0.17430071468386935
+    ],
+    [
+      0.10019413228468954,
+      0.16265317285536854,
+      0.9815829466814304
+    ]
+  ],
+  "R_init": [
+    [
+      0.9910281646797211,
+      -0.12343626897780577,
+      -0.05125099328191078
+    ],
+    [
+      0.11506255601221207,
+      0.9830531999505843,
+      -0.14271304870562201
+    ],
+    [
+      0.06799841921309814,
+      0.13553558044939884,
+      0.9884363011427517
+    ]
+  ],
+  "cpd_public_R_rejects_valid_SO3": true,
+  "cpd_public_signature": "(R=None, t=None, s=None, *args, **kwargs)",
+  "public_R_guard_source": "def is_positive_semi_definite(R):\n    if not isinstance(R, (np.ndarray, np.generic)):\n        raise ValueError('Encountered an error while checking if the matrix is positive semi definite. \\\n            Expected a numpy array, instead got : {}'.format(R))\n    return np.all(np.linalg.eigvals(R) > 0)\n",
+  "results": {
+    "icp": {
+      "rotation_error": 9.29501034454569e-16,
+      "normalized_rotation_error": 5.36647672454381e-16,
+      "rotation_angle_error_degrees": 0.0,
+      "runtime_seconds": 0.004555599996820092,
+      "diagnostics": {
+        "initialization": "convention_test_transform",
+        "icp_transformation": "[[0.9875560450550204, -0.13645101036780075, -0.078193219941966, 4.632291093712328e-17], [0.12121960951514597, 0.9772026745407985, -0.17430071468386954, 3.371713897006747e-17], [0.10019413228468949, 0.16265317285536854, 0.9815829466814308, -4.1967165242553145e-17], [0.0, 0.0, 0.0, 1.0]]",
+        "icp_initial_transformation": "[[0.9910281646797211, -0.12343626897780577, -0.05125099328191078, 0.0], [0.11506255601221207, 0.9830531999505843, -0.14271304870562201, 0.0], [0.06799841921309814, 0.13553558044939884, 0.9884363011427517, 0.0], [0.0, 0.0, 0.0, 1.0]]",
+        "icp_translation_norm": 7.102042309442587e-17,
+        "icp_fitness": 1.0,
+        "icp_inlier_rmse": 2.8978971365989436e-16,
+        "icp_max_correspondence_distance": 2.0,
+        "icp_max_iterations": 30,
+        "icp_relative_fitness": 1e-06,
+        "icp_relative_rmse": 1e-06
+      }
+    },
+    "cpd": {
+      "rotation_error": 8.518746404519332e-16,
+      "normalized_rotation_error": 4.918300529807394e-16,
+      "rotation_angle_error_degrees": 0.0,
+      "runtime_seconds": 0.42792520008515567,
+      "diagnostics": {
+        "initialization": "library_default_identity",
+        "cpd_scale": 0.9999983604103733,
+        "cpd_translation_norm": 6.374778612635253e-17,
+        "cpd_translation": "[3.467727120932826e-17, 2.292388931780526e-17, -4.832972580132118e-17]",
+        "cpd_iterations": 1000,
+        "cpd_max_iterations": 1000,
+        "cpd_tolerance": 0.001,
+        "cpd_w": 0.0,
+        "cpd_stopping_criterion": "max_iterations",
+        "cpd_initialization_route": "pre-rotation + unchanged default incremental CPD",
+        "cpd_R_incremental": [
+          [
+            0.9995463386572311,
+            -0.009348686823187794,
+            -0.028630734038904704
+          ],
+          [
+            0.008442879717833607,
+            0.9994650407013193,
+            -0.031596680173410815
+          ],
+          [
+            0.028910805229096087,
+            0.03134062013733274,
+            0.9990905518872721
+          ]
+        ],
+        "cpd_effective_initial_R": [
+          [
+            0.9910281646797211,
+            -0.12343626897780577,
+            -0.05125099328191078
+          ],
+          [
+            0.11506255601221207,
+            0.9830531999505843,
+            -0.14271304870562201
+          ],
+          [
+            0.06799841921309814,
+            0.13553558044939884,
+            0.9884363011427517
+          ]
+        ],
+        "cpd_composition_max_abs_residual": 2.220446049250313e-16,
+        "cpd_incremental_adapter_runtime_seconds": 0.4276858000084758
+      }
+    }
+  },
+  "synthetic_initial_rotation_predeclared_independently": true
+}

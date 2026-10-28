@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "pair_id": "pair_000",
+  "rows": 7,
+  "MMD_reproduced_saved_Ours": true,
+  "synthetic_conventions_passed": true,
+  "no_GoICP_rerun": true
+}

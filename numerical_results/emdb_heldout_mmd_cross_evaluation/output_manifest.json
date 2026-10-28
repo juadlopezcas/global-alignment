@@ -1,0 +1,85 @@
+{
+  "directory": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation",
+  "files": [
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\evaluation-sample-size-effect.pdf",
+      "sha256": "76787617fe318cd0ff370e3eeeebadce3c99699e8237e4a5b677dd5c24dc090f"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\evaluation-sample-size-effect.png",
+      "sha256": "422d68aaa5458ff347e9469c668146aa5f872e4e3bedeeafb96367cbbd1cc9e4"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\evaluation_protocol.json",
+      "sha256": "e3880f2a1905282f7efa5132431fe93e3ac0eb811445b1a971e0a050e5662d2d"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\fixed_candidates.json",
+      "sha256": "c69bb8e1ed62da26579ecde7a14fed7c9fb8881bb418529e1b89444963aaa91c"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\heldout-preference-counts.pdf",
+      "sha256": "7c3c242a9aadd0f44b0c0c5cf259557c5e757a61d20a77ecebbc477dde738272"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\heldout-preference-counts.png",
+      "sha256": "d18e1be602dfd1eb0bedb17f2d52a33f81e5c17fc0e90af8183c12c2c80e884f"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\heldout_repetition_results.csv",
+      "sha256": "679c710d4d79b442dfdddaa0e7a5209aca0a1bce88e64e6f65f434288f249bf8"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\numerical_validation.json",
+      "sha256": "6e701af2d5a04728403cd00813ca8e82c440e9419eada49f8b62857e6f8e86a1"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\pair_017_legacy_replay.csv",
+      "sha256": "f27c736afc2685ea77ab72c61c4ea006ae7e9684250b43024fe69e9406cfd675"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\per_pair_heldout_summaries.csv",
+      "sha256": "8a8e9a99fb89321f003bda46c6d896ce928991c27406c7e4065bbf402b4b738e"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\preservation_check.json",
+      "sha256": "43e1f03e03a003ad0bc2dedc40a29f3885780292dd8045fab2d4bcc1f02ba326"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\protected_file_hashes.json",
+      "sha256": "060805c98594969baab021ede83f13f98d3e8390e7c6748c4c3157283c42d12e"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\REPORT.md",
+      "sha256": "90857b1a8dab4013831a247925188a676e3152560768851fd9bb2fb152559b61"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\resume_validation.json",
+      "sha256": "c698f848b86a2943914e4e243202e2bdcec82456507924d63ced3a90d2e829ae"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\sample_size_analysis.csv",
+      "sha256": "cfcd2573fe266bd37dadf9daa6a9cf9c948e8bb081e701bdd7b1dd84eb1eee98"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\sampling_plan.csv",
+      "sha256": "80ea8cacacf4af7fb4b16c8071ac66c06d51ca555cbe866251eb96e8a7925725"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\training-versus-heldout-mmd.pdf",
+      "sha256": "36eab8d026ec3250b7fcf7673215c0bd07971b9e73956f612463a855885cea40"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\training-versus-heldout-mmd.png",
+      "sha256": "9ed316608b5da8be19755b8619005d7d16950c36697e05cc4d8588b3c0b52cb9"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\training_versus_heldout.csv",
+      "sha256": "8a8e9a99fb89321f003bda46c6d896ce928991c27406c7e4065bbf402b4b738e"
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\verification_audit.json",
+      "sha256": "908dcca160cc4bc78aa4f728b1b936d1a78b1d894350dceda59e33014c2c2324"
+    }
+  ]
+}

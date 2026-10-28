@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "unit_tests_passed": 7,
+  "evaluation_repetitions": 700,
+  "fixed_candidate_evaluations": 3500,
+  "unique_evaluation_clouds": 1400,
+  "per_pair_comparison_summaries": 240,
+  "summary_and_paired_CI_recomputed_max_discrepancy": 0.0,
+  "completed_design": {
+    "1000": {
+      "pairs": 20,
+      "repetitions_per_pair": 20,
+      "total_repetitions": 400
+    },
+    "5000": {
+      "pairs": 20,
+      "repetitions_per_pair": 10,
+      "total_repetitions": 200
+    },
+    "10000": {
+      "pairs": 20,
+      "repetitions_per_pair": 5,
+      "total_repetitions": 100
+    }
+  },
+  "protected_files_unchanged": 398,
+  "resume_passed": true,
+  "exports": [
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\evaluation-sample-size-effect.png",
+      "pixels": [
+        7209,
+        2709
+      ],
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\heldout-preference-counts.png",
+      "pixels": [
+        4209,
+        2711
+      ],
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\training-versus-heldout-mmd.png",
+      "pixels": [
+        6009,
+        4809
+      ],
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\evaluation-sample-size-effect.pdf",
+      "single_page_vector": true,
+      "embedded_TrueType": true
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\heldout-preference-counts.pdf",
+      "single_page_vector": true,
+      "embedded_TrueType": true
+    },
+    {
+      "path": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_heldout_mmd_cross_evaluation\\training-versus-heldout-mmd.pdf",
+      "single_page_vector": true,
+      "embedded_TrueType": true
+    }
+  ],
+  "all_figures_visually_inspected": true,
+  "no_fitting_or_candidate_modification": true
+}

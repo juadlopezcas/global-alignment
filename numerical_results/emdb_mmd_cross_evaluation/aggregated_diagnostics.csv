@@ -1,0 +1,5 @@
+comparison,num_pairs,mean_difference,sample_std_difference,median_difference,min_difference,max_difference,raw_positive_count,raw_negative_count,MMD_lower_loss_count,alternative_lower_loss_count,numerical_tie_count,MMD_lower_loss_but_higher_angle_count,absolute_comparison_tolerance,positive_difference_means
+ICP_minus_MMD,20,1.5612132633169295e-05,1.4537530413991862e-05,1.354460837288407e-05,3.0613662191925073e-06,5.544505826593493e-05,20,0,20,0,0,20,1e-12,MMD lower loss
+CPD_minus_MMD,20,1.803780902628338e-05,1.713890021289717e-05,1.2587847393996654e-05,2.788504308570694e-06,7.348777475879587e-05,20,0,20,0,0,20,1e-12,MMD lower loss
+TRUE_minus_MMD,20,1.8353020319039625e-05,1.4126018917855148e-05,1.3665049671929275e-05,4.0520961581691495e-06,5.685006387312619e-05,20,0,20,0,0,20,1e-12,MMD lower loss
+MMD_minus_init,20,-6.675664772526346e-07,7.84864893918209e-07,-3.5208874549219615e-07,-2.6937641415258895e-06,-7.472627960858347e-08,0,20,20,0,0,10,1e-12,initialization lower loss

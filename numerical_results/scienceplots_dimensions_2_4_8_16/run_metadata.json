@@ -1,0 +1,88 @@
+{
+  "experiment_id": "scienceplots_dimensions_2_4_8_16_best_improvement",
+  "signature": {
+    "config": {
+      "dimensions": [
+        2,
+        4,
+        8,
+        16
+      ],
+      "n": 200,
+      "num_trials": 20,
+      "seed": 42,
+      "noise_std": 0.05,
+      "sigma": 1.0,
+      "max_greedy_moves": 100,
+      "greedy_tolerance": 1e-12,
+      "max_iterations": 100,
+      "pca_max_iterations": 200,
+      "min_gradient_norm": 1e-06,
+      "dataset_types": [
+        "gaussian_ellipsoid",
+        "uniform_box",
+        "laplace_product"
+      ]
+    },
+    "core_sha256": "a0b406c1e31282832e1f192282e8f7d7350347247e6d429df6f89ef26990f8ca",
+    "versions": {
+      "numpy": "1.25.2",
+      "scipy": "1.9.3",
+      "matplotlib": "3.8.4",
+      "pymanopt": "2.2.0",
+      "autograd": "1.5",
+      "SciencePlots": "2.2.2"
+    },
+    "thread_environment": {
+      "OPENBLAS_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null
+    }
+  },
+  "versions": {
+    "numpy": "1.25.2",
+    "scipy": "1.9.3",
+    "matplotlib": "3.8.4",
+    "pymanopt": "2.2.0",
+    "autograd": "1.5",
+    "SciencePlots": "2.2.2"
+  },
+  "python_executable": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\data\\.venv-emdb-baselines\\Scripts\\python.exe",
+  "runner_sha256": "34a2e15df3fffd24e4afe98108687d8534042834899527a682024587bf07eef3",
+  "style_helper_sha256": "65275c578cb49340c32c839d677d50a8a3fc612f6c2e7c605cddc9ff6d7d2b0d",
+  "styles": [
+    "science",
+    "no-latex"
+  ],
+  "status": "completed",
+  "config": {
+    "dimensions": [
+      2,
+      4,
+      8,
+      16
+    ],
+    "n": 200,
+    "num_trials": 20,
+    "seed": 42,
+    "noise_std": 0.05,
+    "sigma": 1.0,
+    "max_greedy_moves": 100,
+    "greedy_tolerance": 1e-12,
+    "max_iterations": 100,
+    "pca_max_iterations": 200,
+    "min_gradient_norm": 1e-06,
+    "dataset_types": [
+      "gaussian_ellipsoid",
+      "uniform_box",
+      "laplace_product"
+    ]
+  },
+  "trial_count": 240,
+  "group_count": 12,
+  "invocation_elapsed_seconds": 141.7619574998971,
+  "plotting_invocation_seconds": 5.572059400030412,
+  "latest_plotting_runner_sha256": "09b32bc3c5ccdc82efde8dd2369c936eda3c3a118a4b4bb49aebcf965682cc45",
+  "validation_tests": "13 passed (7 generator/grouping + 6 publication/reuse checks)",
+  "pdf_font_timestamp_warnings": "Nonfatal fontTools font-file creation/modification timestamp warnings during font embedding; PDF structure and embedded TrueType/vector content validated."
+}

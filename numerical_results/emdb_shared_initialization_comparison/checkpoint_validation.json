@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "rows": 140,
+  "conditions_per_pair": 7,
+  "initializations": 20,
+  "all_shared_MMD_rows_reproduce_reference": true,
+  "no_GoICP_searches_run": true,
+  "maximum_reference_R_fro_difference": 0.0
+}

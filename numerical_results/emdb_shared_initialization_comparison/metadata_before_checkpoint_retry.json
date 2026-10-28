@@ -1,0 +1,92 @@
+{
+  "signature": {
+    "reference_signature": {
+      "manifest": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\data\\emdb_9515_resampling_pairs\\resampling_manifest.csv",
+      "manifest_sha256": "708bce47eb0bb558f1fd510d1f51936e93a07f117e37a113e42146f31b06b289",
+      "dataset_identity": {
+        "emdb_id": "EMD-9515",
+        "map_file": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\data\\emd_9515.map",
+        "map_sha256": "9da0aaa5d8f9a0ff5cb4cb1c6b5971453220aa82d7ea9430fd3b098acdaa60ad",
+        "contour_threshold": 0.035,
+        "num_points": 1000,
+        "master_seed": 42
+      },
+      "method_settings": {
+        "sigma": 1.0,
+        "max_greedy_moves": 100,
+        "greedy_tolerance": 1e-12,
+        "max_iterations": 100,
+        "pca_max_iterations": 200,
+        "min_gradient_norm": 1e-06,
+        "icp_max_correspondence_distance": 2.0,
+        "goicp_mse_threshold": 0.001,
+        "goicp_dt_size": 300,
+        "goicp_trim_fraction": 0.0,
+        "goicp_num_data_points": 1000,
+        "goicp_translation_min": -0.05,
+        "goicp_translation_width": 0.1,
+        "cpd_max_iterations": 1000,
+        "cpd_tolerance": 0.001,
+        "cpd_w": 0,
+        "cpd_initialization": "identity R, t=0, s=1, automatic sigma2; scale estimated",
+        "goicp_dt_expand_factor": 2.0,
+        "goicp_cleanup_guard": 5e-06
+      },
+      "package_versions": {
+        "numpy": "1.25.2",
+        "scipy": "1.9.3",
+        "pymanopt": "2.2.0",
+        "autograd": "1.5",
+        "matplotlib": "3.8.4",
+        "open3d": "0.19.0",
+        "pycpd": "2.0.0",
+        "py-goicp": "0.0.4"
+      },
+      "registration_source_sha256": "a373554dbd58cd623b67e74b80829a03cfdced8ac07c6f5d6e6537209ccb84b0",
+      "driver_source_sha256": "b262faa319e03c7f86623e0e8d93cefa621aea6b118e24e34a0171da4ba7ef5b",
+      "generator_source_sha256": "5a7fdc32f3723324a1d1e7a9d8533c774d8c49d9a206c2e47a657fa887e441e0",
+      "diagnostics_source_sha256": "8d940d70a61117af139a6ab3e35e86bf09f5a71c9c180ec4fc45af38b57c414a",
+      "thread_environment": {
+        "OPENBLAS_NUM_THREADS": null,
+        "OMP_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null
+      }
+    },
+    "reference_csv_sha256": "51709ce7f82ebda55641b143821226be648eca8573cb0c1d69f4d28ab1d9656d",
+    "reference_metadata_sha256": "697ee3f71f27e45238c871859e3dfb4a3c14f332d478a65eb0a333924a60b3fa",
+    "new_driver_sha256": "25a3ec42d1096d15166cdd5f88e1aa1e7605b46800cd789a548ac64d035c6ec7",
+    "SciencePlots_version": "2.2.2",
+    "cpd_library_sha256": "c54839b23f7eaa40c72d2acf0e57f9e5fe28035f8fb7fb60fe131b00c59d589c"
+  },
+  "num_pairs": 20,
+  "status": "validating",
+  "reference_reused_methods": [
+    "icp_identity",
+    "cpd_identity",
+    "goicp_global"
+  ],
+  "no_GoICP_searches_run": true,
+  "settings": {
+    "sigma": 1.0,
+    "max_greedy_moves": 100,
+    "greedy_tolerance": 1e-12,
+    "max_iterations": 100,
+    "pca_max_iterations": 200,
+    "min_gradient_norm": 1e-06,
+    "icp_max_correspondence_distance": 2.0,
+    "goicp_mse_threshold": 0.001,
+    "goicp_dt_size": 300,
+    "goicp_trim_fraction": 0.0,
+    "goicp_num_data_points": 1000,
+    "goicp_translation_min": -0.05,
+    "goicp_translation_width": 0.1,
+    "cpd_max_iterations": 1000,
+    "cpd_tolerance": 0.001,
+    "cpd_w": 0,
+    "cpd_initialization": "identity R, t=0, s=1, automatic sigma2; scale estimated",
+    "goicp_dt_expand_factor": 2.0,
+    "goicp_cleanup_guard": 5e-06
+  },
+  "cpd_initialization": "pre-rotation + default incremental CPD",
+  "runtime_accounting": "shared init once per pair; standalone totals include overhead; cached runtimes retain provenance"
+}

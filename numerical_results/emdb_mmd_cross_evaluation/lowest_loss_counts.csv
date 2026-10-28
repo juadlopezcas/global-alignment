@@ -1,0 +1,4 @@
+candidate,strict_lowest_among_three_refinements,within_tolerance_of_lowest_among_three,strict_lowest_among_all_five,num_pairs
+R_mmd,20,20,20,20
+R_icp,0,0,0,20
+R_cpd,0,0,0,20

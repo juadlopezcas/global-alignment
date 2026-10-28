@@ -1,0 +1,19 @@
+{
+  "old_driver_sha256": "25a3ec42d1096d15166cdd5f88e1aa1e7605b46800cd789a548ac64d035c6ec7",
+  "new_driver_sha256": "3ef13d271f5083b8207fcb725587fbfd2bede326a1db3cfbd295367753be6094",
+  "verified_unchanged_functions": [
+    "shared_initialization",
+    "mmd_refinement",
+    "icp_refinement",
+    "cpd_refinement",
+    "cached_result",
+    "verify_mmd_reproduction",
+    "make_row",
+    "synthetic_validation",
+    "validate_rows",
+    "numeric_rows",
+    "statistics",
+    "pairwise"
+  ],
+  "reason": "transient Windows atomic-replace destination lock; retry only, plus commit-before-append bookkeeping"
+}

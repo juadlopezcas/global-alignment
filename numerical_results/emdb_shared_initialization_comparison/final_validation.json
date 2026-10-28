@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "exports": [
+    {
+      "file": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\angular-error-initialization-comparison.png",
+      "format": "PNG",
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "size_pixels": [
+        4929,
+        2769
+      ]
+    },
+    {
+      "file": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\runtime-initialization-comparison.png",
+      "format": "PNG",
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "size_pixels": [
+        4929,
+        2889
+      ]
+    },
+    {
+      "file": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\shared-initialization-refinement-by-pair.png",
+      "format": "PNG",
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "size_pixels": [
+        4809,
+        3729
+      ]
+    },
+    {
+      "file": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\angular-error-initialization-comparison.pdf",
+      "format": "PDF",
+      "vector": true,
+      "embedded_truetype_fonts": true,
+      "pages": 1
+    },
+    {
+      "file": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\runtime-initialization-comparison.pdf",
+      "format": "PDF",
+      "vector": true,
+      "embedded_truetype_fonts": true,
+      "pages": 1
+    },
+    {
+      "file": "C:\\Users\\22898\\Desktop\\project\\global-alignment\\numerical_results\\emdb_shared_initialization_comparison\\shared-initialization-refinement-by-pair.pdf",
+      "format": "PDF",
+      "vector": true,
+      "embedded_truetype_fonts": true,
+      "pages": 1
+    }
+  ],
+  "actual_SciencePlots_styles": [
+    "science",
+    "no-latex"
+  ],
+  "all_140_rows_numeric_and_transform_parameters_valid": true,
+  "pair017_original_greedy_R_fro_difference": 0.0,
+  "ICP_convergence_flag_not_exposed_and_not_invented": true,
+  "max_CPD_composition_coordinate_residual": 3.3306690738754696e-16
+}

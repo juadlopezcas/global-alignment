@@ -1,0 +1,125 @@
+{
+  "passed": true,
+  "exports": [
+    {
+      "file": "frame-error-vs-dimension-scienceplots-linear.png",
+      "format": "PNG",
+      "size_pixels": [
+        4089,
+        2559
+      ],
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "file": "frame-error-vs-dimension-scienceplots-log.png",
+      "format": "PNG",
+      "size_pixels": [
+        4089,
+        2559
+      ],
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "file": "normalized-frame-error-vs-dimension-scienceplots-linear.png",
+      "format": "PNG",
+      "size_pixels": [
+        4089,
+        2559
+      ],
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "file": "normalized-frame-error-vs-dimension-scienceplots-log.png",
+      "format": "PNG",
+      "size_pixels": [
+        4089,
+        2559
+      ],
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "file": "normalized-rotation-error-vs-dimension-scienceplots-linear.png",
+      "format": "PNG",
+      "size_pixels": [
+        4089,
+        2559
+      ],
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "file": "rotation-error-vs-dimension-scienceplots-linear.png",
+      "format": "PNG",
+      "size_pixels": [
+        4089,
+        2559
+      ],
+      "dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "file": "frame-error-vs-dimension-scienceplots-linear.pdf",
+      "format": "PDF",
+      "vector_no_image_objects": true,
+      "embedded_truetype_fonts": true,
+      "pages": 1
+    },
+    {
+      "file": "frame-error-vs-dimension-scienceplots-log.pdf",
+      "format": "PDF",
+      "vector_no_image_objects": true,
+      "embedded_truetype_fonts": true,
+      "pages": 1
+    },
+    {
+      "file": "normalized-frame-error-vs-dimension-scienceplots-linear.pdf",
+      "format": "PDF",
+      "vector_no_image_objects": true,
+      "embedded_truetype_fonts": true,
+      "pages": 1
+    },
+    {
+      "file": "normalized-frame-error-vs-dimension-scienceplots-log.pdf",
+      "format": "PDF",
+      "vector_no_image_objects": true,
+      "embedded_truetype_fonts": true,
+      "pages": 1
+    },
+    {
+      "file": "normalized-rotation-error-vs-dimension-scienceplots-linear.pdf",
+      "format": "PDF",
+      "vector_no_image_objects": true,
+      "embedded_truetype_fonts": true,
+      "pages": 1
+    },
+    {
+      "file": "rotation-error-vs-dimension-scienceplots-linear.pdf",
+      "format": "PDF",
+      "vector_no_image_objects": true,
+      "embedded_truetype_fonts": true,
+      "pages": 1
+    }
+  ],
+  "aggregate_and_plot_values_exactly_equal": true,
+  "distribution_colors_consistent": {
+    "gaussian_ellipsoid": "#0C5DA5",
+    "uniform_box": "#00B945",
+    "laplace_product": "#FF9500"
+  }
+}

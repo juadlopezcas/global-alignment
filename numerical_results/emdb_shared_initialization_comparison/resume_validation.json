@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "completed_rows_reused": 140,
+  "new_initializations": 0,
+  "new_local_refinements": 0,
+  "new_GoICP_searches": 0,
+  "source_trial_csv_unchanged": true,
+  "test_scope": "copy of completed checkpoint, fitting functions forbidden, figures/report disabled; temporary files removed"
+}
